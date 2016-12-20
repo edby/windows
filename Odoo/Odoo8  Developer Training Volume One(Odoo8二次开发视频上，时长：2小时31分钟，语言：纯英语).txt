@@ -1,0 +1,22 @@
+Odoo8 / OpenERP - Developer Training Volume One (Odoo8 二次开发（上）视频，时长：2小时31分钟，语言：纯英语)
+
+百度网盘下载地址：链接：http://pan.baidu.com/s/1dDhWLUD 密码：ovay
+
+视频介绍：http://www.odooclass.com/shop/product/odoo-openerp-developer-training-volume-one-9
+
+If you are wanting to get started with Odoo development and are not really sure where to begin, this is the video for you. 
+Learn the basics of Python and how to create an Odoo module from scratch. 
+Learn the power of Odoo's inheritance to add functionality to Odoo applications without changing any of the base source code.
+
+
+OdooClass.com 专业Odoo使用，二次开发，部署视频培训
+目前推出了OpenErp7,Odoo8（从入门到精通）,Odoo9的（目前10+，不断推出新的）
+更多课程 http://www.odooclass.com/shop,可以直接订阅，一年费用在4500元左右
+
+我是OdooClass的订阅用户，如果您需要一起团购，或者需要Odoo其他视频的加我QQ交流
+
+个人心得：纯英语讲解，没有注释，需要一定的英语功底
+
+	  如果实在听不懂，可以看其操作演示，基本上可以学会
+
+          我跟在后面练习了，目前已经会使用，二次开发，希望更多的朋友一起交流学习odoo

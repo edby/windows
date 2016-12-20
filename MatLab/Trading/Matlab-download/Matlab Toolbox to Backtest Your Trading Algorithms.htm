@@ -1,0 +1,777 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0062)https://quantiacs.com/For-Quants/GetStarted/MatlabToolbox.aspx -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head id="head"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>
+	Matlab Toolbox to Backtest Your Trading Algorithms
+</title><meta name="description" content="The  Quantiacs toolbox helps you to test your trading ideas. It comes in Matlab and simplify the backtesting."> 
+ 
+<meta http-equiv="pragma" content="no-cache"> 
+<meta http-equiv="content-style-type" content="text/css"> 
+<meta http-equiv="content-script-type" content="text/javascript"> 
+<meta name="keywords" content="Matlab, trading algorithms"> 
+<link href="./Matlab Toolbox to Backtest Your Trading Algorithms_files/GetResource.ashx" type="text/css" rel="stylesheet"> 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<meta name="google-site-verification" content="uDsxSWQOfVXAXKf8RoRvFNMj5DfZpsjvUDbeOMaEAbo"> 
+<link href="https://quantiacs.com/favicon.ico" type="image/x-icon" rel="shortcut icon"> 
+<link href="https://quantiacs.com/favicon.ico" type="image/x-icon" rel="icon"> 
+<link href="./Matlab Toolbox to Backtest Your Trading Algorithms_files/GetResource(1).ashx" type="text/css" rel="stylesheet"><link href="./Matlab Toolbox to Backtest Your Trading Algorithms_files/GetResource(2).ashx" type="text/css" rel="stylesheet"><link href="./Matlab Toolbox to Backtest Your Trading Algorithms_files/GetResource(3).ashx" type="text/css" rel="stylesheet"><link href="./Matlab Toolbox to Backtest Your Trading Algorithms_files/GetResource(4).ashx" type="text/css" rel="stylesheet"><link href="./Matlab Toolbox to Backtest Your Trading Algorithms_files/GetResource(5).ashx" type="text/css" rel="stylesheet"><link href="./Matlab Toolbox to Backtest Your Trading Algorithms_files/GetResource(6).ashx" type="text/css" rel="stylesheet"><link href="./Matlab Toolbox to Backtest Your Trading Algorithms_files/GetResource(7).ashx" type="text/css" rel="stylesheet"><link href="./Matlab Toolbox to Backtest Your Trading Algorithms_files/GetResource(8).ashx" type="text/css" rel="stylesheet"><link href="./Matlab Toolbox to Backtest Your Trading Algorithms_files/GetResource(9).ashx" type="text/css" rel="stylesheet"><link href="./Matlab Toolbox to Backtest Your Trading Algorithms_files/GetResource(10).ashx" type="text/css" rel="stylesheet"><link href="./Matlab Toolbox to Backtest Your Trading Algorithms_files/GetResource(11).ashx" type="text/css" rel="stylesheet"><link href="./Matlab Toolbox to Backtest Your Trading Algorithms_files/GetResource(12).ashx" type="text/css" rel="stylesheet"><link href="./Matlab Toolbox to Backtest Your Trading Algorithms_files/GetResource(13).ashx" type="text/css" rel="stylesheet"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"><link rel="stylesheet" type="text/css" href="./Matlab Toolbox to Backtest Your Trading Algorithms_files/css"><link rel="stylesheet" type="text/css" href="./Matlab Toolbox to Backtest Your Trading Algorithms_files/css(1)"></head>
+<body class="LTR Safari Chrome Safari31 Chrome31 ENUS ContentBody Chrome Chrome31 cmsKENTICO cmsKENTICO6">
+    <form method="post" action="./Matlab Toolbox to Backtest Your Trading Algorithms_files/Matlab Toolbox to Backtest Your Trading Algorithms.htm" id="form">
+<div class="aspNetHidden">
+<input type="hidden" name="manScript_HiddenField" id="manScript_HiddenField" value="">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUJODc3OTc4NjAwD2QWAgIBEGRkFgICBQ9kFgJmD2QWAmYPZBYCAgQPZBYCZg8WAh4HVmlzaWJsZWgWAgIBD2QWAmYPZBYCAgIPZBYCZg9kFgJmD2QWAmYPFQHPjQE8aDM+DQoJPHN0cm9uZz5RdWFudGlhY3MgUTIgQ29udGVzdCAmbmRhc2g7IFRlcm1zIGFuZCBDb25kaXRpb25zPC9zdHJvbmc+PC9oMz4NCiZuYnNwOzxiciAvPg0KQS4mbmJzcDsmbmJzcDsgJm5ic3A7Tk8gUFVSQ0hBU0UgT1IgUEFZTUVOVCBPRiBBTlkgS0lORCBJUyBORUNFU1NBUlkgVE8gRU5URVIgT1IgV0lOIFRISVMgQ09OVEVTVCBPRiBTS0lMTC48YnIgLz4NCkIuJm5ic3A7Jm5ic3A7ICZuYnNwO0JZIEVOVEVSSU5HIFRISVMgQ09OVEVTVCwgRUFDSCBFTlRSQU5UIENFUlRJRklFUyBUSEFUIEhFL1NIRSBNRUVUUyBBTEwgRUxJR0lCSUxJVFkgUkVRVUlSRU1FTlRTIEFORCBBR1JFRVMgVE8gQUNDRVBUIEFORCBCRSBCT1VORCBCWSBBTEwgT0YgVEhFU0UgVEVSTVMgQU5EIENPTkRJVElPTlMgKHRoZSAmbGRxdW87T2ZmaWNpYWwgUnVsZXMmcmRxdW87KS48YnIgLz4NCiZuYnNwOzxiciAvPg0KPHN0cm9uZz4xLiZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyBTcG9uc29yOiZuYnNwOzwvc3Ryb25nPiBUaGlzIFF1YW50aWFjcyBGdXR1cmVzIENvbnRlc3QgKHRoZSAmbGRxdW87Q29udGVzdCZyZHF1bzspLCBpcyBzcG9uc29yZWQgYnkgUXVhbnRpYWNzLCBMTEMgKHRoZSAmbGRxdW87U3BvbnNvciZyZHF1bzspLCBhIERlbGF3YXJlIGxpbWl0ZWQgbGlhYmlsaXR5IGNvbXBhbnkgbG9jYXRlZCBhdCA0NDUgQ2FtYnJpZGdlIEF2ZW51ZSwgU3VpdGUgQiwgUGFsbyBBbHRvLCBDYWxpZm9ybmlhIDk0MzA2LiZuYnNwOyBUaGUgQ29udGVzdCBpcyBnb3Zlcm5lZCBieSB0aGUgbGF3cyBvZiB0aGUgc3RhdGUgb2YgQ2FsaWZvcm5pYS48YnIgLz4NCjxzdHJvbmc+Mi4mbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsgRWxpZ2liaWxpdHk6PC9zdHJvbmc+Jm5ic3A7IFBhcnRpY2lwYXRpb24gaW4gdGhpcyBDb250ZXN0IGlzIG9wZW4gb25seSB0byBuYXR1cmFsIHBlcnNvbnMgd2hvIG1lZXQgYWxsIG9mIHRoZSBmb2xsb3dpbmcgY29uZGl0aW9ucyAoJmxkcXVvO1BhcnRpY2lwYW50cyZyZHF1bzspOiZuYnNwOyAoaSkgdGhleSBhcmUgcmVzaWRlbnRzIG9mIHRoZSBVbml0ZWQgU3RhdGVzIG9mIEFtZXJpY2EgYXQgdGhlIHRpbWUgb2YgZW50cnkgaW4gdGhlIENvbnRlc3Q7IChpaSkgdGhleSBhcmUgZWlnaHRlZW4gKDE4KSB5ZWFycyBvZiBhZ2Ugb3Igb2xkZXIgYXQgdGhlIHRpbWUgb2YgZW50cnkgaW4gdGhlIENvbnRlc3Q7IChpaWkpIHRoZXkgYXJlIHN0dWRlbnRzIG9yIGFsdW1uaSBvZiBhIGNvbGxlZ2Ugb3IgdW5pdmVyc2l0eSBkb21pY2lsZWQgaW4gdGhlIFVuaXRlZCBTdGF0ZXMgb2YgQW1lcmljYSAoYSAmbGRxdW87VS5TLiBVbml2ZXJzaXR5JnJkcXVvOyk7IChpdikgdGhleSBhZ3JlZSB0byB0aGUgdGVybXMgYW5kIGNvbmRpdGlvbnMgb2YgdGhlIFNwb25zb3ImcnNxdW87cyBVc2VyIEFncmVlbWVudCBhdmFpbGFibGUgYXQgd3d3LlF1YW50aWFjcy5jb20uJm5ic3A7RWxpZ2liaWxpdHkgdG8gY29tcGV0ZSBmb3IgYW55IHByaXplcyBhd2FyZGVkIGJ5IHRoaXMgQ29udGVzdCBpcyBmdXJ0aGVyIGxpbWl0ZWQgdG8gJmxkcXVvO3VuaXF1ZSZyZHF1bzsgVHJhZGluZyBTeXN0ZW1zIGFzIHNldCBmb3J0aCBoZXJlaW4uPGJyIC8+DQpUaGUgU3BvbnNvciByZXNlcnZlcyB0aGUgbW9kaWZ5IHRoZSBlbGlnaWJpbGl0eSByZXF1aXJlbWVudHMgZm9yIGVudHJ5IGR1cmluZyB0aGUgY291cnNlIG9mIHRoZSBDb250ZXN0IGlmIGxlc3MgdGhhbiB0aGlydHkgKDMwKSBQYXJ0aWNpcGFudHMgaGF2ZSBlbnRlcmVkIHRoZSBDb250ZXN0IGJ5IE1heSAzMSwgMjAxNSBhcyBkZXNjcmliZWQgYmVsb3cuJm5ic3A7IFVwb24gcmVxdWVzdCwgdGhlIFNwb25zb3IgcmVzZXJ2ZXMgdGhlIHJpZ2h0LCBpbiBpdHMgc29sZSBkaXNjcmV0aW9uLCB0byB3YWl2ZSBjZXJ0YWluIGVsaWdpYmlsaXR5IHJlcXVpcmVtZW50cyBmb3Igb3RoZXJ3aXNlIHF1YWxpZmllZCBwZXJzb25zLjxiciAvPg0KPHN0cm9uZz4zLiZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyBDb250ZXN0IFN1bW1hcnk6PC9zdHJvbmc+Jm5ic3A7IFBhcnRpY2lwYW50cyBhcmUgaW52aXRlZCB0byBzdWJtaXQgYWxnb3JpdGhtaWMgVHJhZGluZyBTeXN0ZW1zIChhcyBmdXJ0aGVyIGRlZmluZWQgYmVsb3cpIG92ZXIgdGhlIFNwb25zb3ImcnNxdW87cyB3ZWJzaXRlIGF0IHd3dy5RdWFudGlhY3MuY29tLiZuYnNwOyBVc2luZyB0aGUgcGVyZm9ybWFuY2UgY3JpdGVyaWEgc2V0IGZvcnRoIGhlcmVpbiwgdGhlc2UgVHJhZGluZyBTeXN0ZW1zIHdpbGwgYmUgZXZhbHVhdGVkIHVzaW5nIGhpc3RvcmljYWwgYW5kIGxpdmUgZnV0dXJlcyB0cmFkZSBkYXRhIGZyb20gSmFudWFyeSAxLCAxOTkwIHRocm91Z2ggSnVuZSAzMCwgMjAxNSAodGhlICZsZHF1bztFdmFsdWF0aW9uIFBlcmlvZCZyZHF1bzspIGFzIG1heSBiZSBtb2RpZmllZCBhcyBwcm92aWRlZCBoZXJlaW4uJm5ic3A7IFRoZSB0aHJlZSBQYXJ0aWNpcGFudHMgc3VibWl0dGluZyBUcmFkaW5nIFN5c3RlbXMgdGhhdCBhY2hpZXZlIHRoZSB0aHJlZSBoaWdoZXN0IFNjb3JlcyAoYXMgZGVmaW5lZCBiZWxvdykgd2lsbCBiZSBhd2FyZGVkIGFsbG9jYXRpb25zIHRvIHRoZWlyIHN0cmF0ZWdpZXMgKGEgJmxkcXVvO0dyYW5kIFByaXplJnJkcXVvOyksIGFzIHNldCBmb3J0aCBiZWxvdy48YnIgLz4NCjxzdHJvbmc+NC4mbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsgRW50cnkgUGVyaW9kOjwvc3Ryb25nPiZuYnNwOyBFbnRyaWVzIHdpbGwgYmUgYWNjZXB0ZWQgZnJvbSAxMjowMDowMSBhLm0uIG9uIEFwcmlsIDIwLCAyMDE1IHVudGlsIG1pZG5pZ2h0IG9uIEp1bmUgMzAsIDIwMTUgKHRoZSAmbGRxdW87RW50cnkgUGVyaW9kJnJkcXVvOykuIElmIGFzIG9mIEp1bmUgMzAsIDIwMTUsIGxlc3MgdGhhbiB0aGlydHkgKDMwKSBQYXJ0aWNpcGFudHMgaGF2ZSBzdWJtaXR0ZWQgZW50cmllcywgdGhlIFNwb25zb3IgbWF5LCBpbiBpdHMgc29sZSBkaXNjcmV0aW9uLCBjYW5jZWwgdGhlIENvbnRlc3QsIGluIHdoaWNoIGV2ZW50IG5vIGF3YXJkcyBvciBwcml6ZXMgd2lsbCBiZSBncmFudGVkIG9yIGRpc3RyaWJ1dGVkIGluIGNvbm5lY3Rpb24gd2l0aCB0aGUgQ29udGVzdC48YnIgLz4NCjxzdHJvbmc+YS4mbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsgPC9zdHJvbmc+VGhlIEVudHJ5IFBlcmlvZCBpcyBkaXZpZGVkIGludG8gdGhyZWUgc3ViLXBlcmlvZHM6IHRoZSBEYXJrbmVzcyBQaGFzZSwgdGhlIFR3aWxpZ2h0IFBoYXNlIGFuZCB0aGUgRGF5bGlnaHQgUGhhc2UuPGJyIC8+DQo8c3Ryb25nPmIuJm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7IDwvc3Ryb25nPlRoZSBEYXJrbmVzcyBQaGFzZSBzdGFydHMgYXQgMTI6MDA6MDEgYS5tLiBvbiBNYXkgMSwgMjAxNSBhbmQgZW5kcyBhdCBtaWRuaWdodCBvbiBNYXkgMjIsIDIwMTUuIER1cmluZyB0aGUgRGFya25lc3MgUGhhc2UsIG5vIGluZm9ybWF0aW9uIGFib3V0IHN1Ym1pdHRlZCBzeXN0ZW1zIGlzIHByb3ZpZGVkLiZuYnNwOzxiciAvPg0KPHN0cm9uZz5jLiZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyA8L3N0cm9uZz5UaGUgVHdpbGlnaHQgUGhhc2Ugc3RhcnRzIGF0IDEyOjAwOjAxIGEubS4gb24gTWF5IDIzLCAyMDE1IGFuZCBlbmRzIGF0IG1pZG5pZ2h0IG9uIEp1bmUgMTIsIDIwMTUuIER1cmluZyB0aGUgVHdpbGlnaHQgUGhhc2UsIG9ubHkgdGhlIG51bWJlciBvZiBwYXJ0aWNpcGF0aW5nIHN5c3RlbXMsIGluZm9ybWF0aW9uIHdoZXRoZXIgZXZhbHVhdGlvbiBldmFsdWF0aW9uIG9uIHRoZSBTcG9uc29yJnJzcXVvO3Mgc2VydmVycyB3YXMgc3VjY2Vzc2Z1bCBhbmQgYSBzbWFsbCBncmFwaGljIG9mIHRoZSByZXN1bHRpbmcgZXF1aXR5IGN1cnZlIG9mIGVhY2ggc3lzdGVtIGFyZSBwdWJsaXNoZWQgb24gdGhlIFNwb25zb3ImcnNxdW87cyB3ZWJzaXRlLjxiciAvPg0KPHN0cm9uZz5kLiZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyA8L3N0cm9uZz5UaGUgRGF5bGlnaHQgUGhhc2Ugc3RhcnRzIGF0IDEyOjAwOjAxIGEubS4gb24gSnVuZSAxMywgMjAxNSBhbmQgZW5kcyBhdCBtaWRuaWdodCBvbiBKdW5lIDMwLCAyMDE1LiBEdXJpbmcgdGhlIERheWxpZ2h0IFBoYXNlIHRoZSBTY29yZXMgYW5kIGVxdWl0eSBjdXJ2ZXMgb2YgYWxsIHN1Ym1pdHRlZCBzeXN0ZW1zIGFyZSBwdWJsaXNoZWQgb24gdGhlIFNwb25zb3ImcnNxdW87cyB3ZWJzaXRlLjxiciAvPg0KPHN0cm9uZz41LiZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyBIb3cgdG8gRW50ZXI6Jm5ic3A7PC9zdHJvbmc+IFRvIGVudGVyLCBQYXJ0aWNpcGFudHMgbXVzdCB1cGxvYWQgYSBUcmFkaW5nIFN5c3RlbSAoYXMgZGVmaW5lZCBiZWxvdykgZHVyaW5nIHRoZSBFbnRyeSBQZXJpb2QgdG8gd3d3LlF1YW50aWFjcy5jb20gYnkgZm9sbG93aW5nIHRoZSBpbnN0cnVjdGlvbnMgcG9zdGVkIHRoZXJlLiZuYnNwOyBQYXJ0aWNpcGFudHMgbXVzdCBpbmNsdWRlIHdpdGggdGhlaXIgc3VibWlzc2lvbiB0aGUgZm9sbG93aW5nIGluZm9ybWF0aW9uOiZuYnNwOyBoaXMvaGVyIG5hbWU7IHJlc2lkZW50aWFsIG1haWxpbmcgYWRkcmVzczsgaGlzL2hlciBhbG1hIG1hdGVyOyBhbmQgcGhvbmUgbnVtYmVyLiZuYnNwOyBBIFBhcnRpY2lwYW50IG1heSBzdWJtaXQgdXAgdG8gdGVuICgxMCkgVHJhZGluZyBTeXN0ZW1zIHBlciBkYXkgZHVyaW5nIHRoZSBFbnRyeSBQZXJpb2Q7IHByb3ZpZGVkIGhvd2V2ZXIgdGhhdCBlYWNoIFBhcnRpY2lwYW50JnJzcXVvO3Mgc2luZ2xlIHF1YWxpZnlpbmcgZW50cnkgd2lsbCBiZSB0aGUgVHJhZGluZyBTeXN0ZW0gdGhhdCBwcm9kdWNlcyB0aGUgaGlnaGVzdCBTY29yZSBhcyBvZiB0aGUgbGFzdCBkYXkgb2YgdGhlIExpdmUgUGVyaW9kIGFzIGRlZmluZWQgYmVsb3cgYnkgdGhlc2UgT2ZmaWNpYWwgUnVsZXMuIE5vIHNpbmdsZSBQYXJ0aWNpcGFudCBtYXkgcmVjZWl2ZSBtb3JlIHRoYW4gb25lIG9mIHRoZSB0aHJlZSBHcmFuZCBQcml6ZXMgZGVmaW5lZCBoZXJlaW4uPGJyIC8+DQo8c3Ryb25nPjYuJm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7IExpdmUgQ29udGVzdCBQZXJpb2Q6PC9zdHJvbmc+Jm5ic3A7IFRoZSBDb250ZXN0IHN0YXJ0cyBvbiBKdWx5IDEsIDIwMTUgYXQgMTI6MDAuMDEgYS5tLiBhbmQgZW5kcyBvbiBTZXB0ZW1iZXIgMzAsIDIwMTUgYXQgbWlkbmlnaHQgKHRoZSAmbGRxdW87TGl2ZSBDb250ZXN0IFBlcmlvZCZyZHF1bzspLiZuYnNwOyBEdXJpbmcgdGhlIExpdmUgQ29udGVzdCBQZXJpb2QsIG5vIGNoYW5nZXMgbWF5IGJlIG1hZGUgdG8gVHJhZGluZyBTeXN0ZW1zIGVudGVyZWQgaW4gdGhlIENvbnRlc3QuJm5ic3A7IFRoZSByZXN1bHRzIG9mIGFsbCBwYXJ0aWNpcGF0aW5nIFRyYWRpbmcgU3lzdGVtcyB3aWxsIGJlIHVwZGF0ZWQgZGFpbHkgZHVyaW5nIHRoZSBMaXZlIENvbnRlc3QgUGVyaW9kLCBhcyBuZXcgbWFya2V0IGRhdGEgYXJyaXZlcy4mbmJzcDsgVGhlIHJlc3VsdHMgd2lsbCBiZSBwdWJsaXNoZWQgb24gd3d3LlF1YW50aWFjcy5jb20uJm5ic3A7PGJyIC8+DQo8c3Ryb25nPjcuJm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7IFRyYWRpbmcgU3lzdGVtIFRlY2huaWNhbCBSZXF1aXJlbWVudHMgYW5kIFRyYWRpbmcgUnVsZXM6Jm5ic3A7PC9zdHJvbmc+IFBhcnRpY2lwYXRpbmcgYWxnb3JpdGhtaWMgdHJhZGluZyBzeXN0ZW1zICgmbGRxdW87VHJhZGluZyBTeXN0ZW1zJnJkcXVvOykgbXVzdCBiZSBkZXZlbG9wZWQgaW4gYWNjb3JkYW5jZSB3aXRoIGFuZCBtZWV0IHRoZSBmb2xsb3dpbmcgcmVxdWlyZW1lbnRzOjxiciAvPg0KPHN0cm9uZz5hLiZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyA8L3N0cm9uZz5UcmFkaW5nIFN5c3RlbXMgbXVzdCBiZSBkZXZlbG9wZWQgc29sZWx5IHdpdGggdGhlIG1hcmtldCBkYXRhIHRoYXQgaXMgcHJvdmlkZWQgYnkgdGhlIFNwb25zb3IuJm5ic3A7IFRoZSBtYXJrZXQgZGF0YSBjb25zaXN0cyBvZiBlbmQgb2YgZGF5IGRhdGEgb2YgYSBzZWxlY3Rpb24gb2YgZnV0dXJlcyBjb250cmFjdHMuJm5ic3A7IFRoZSBjb21wb3NpdGlvbiBvZiB0aGUgcG9ydGZvbGlvIG1heSBjaGFuZ2UgZHVyaW5nIHRoZSBjb250ZXN0IGlmIGFkZGl0aW9uYWwgbWFya2V0IGRhdGEgaXMgcHJvdmlkZWQgYnkgdGhlIFNwb25zb3IuJm5ic3A7IEl0IGlzIHdpdGhpbiBlYWNoIFBhcnRpY2lwYW50JnJzcXVvO3MgZGlzY3JldGlvbiB0byBzZWxlY3QgaGlzIG9yIGhlciBwb3J0Zm9saW8gZnJvbSB0aGUgYXZhaWxhYmxlIGZ1dHVyZXMgbWFya2V0IGRhdGEgcHJvdmlkZWQgYnkgdGhlIFNwb25zb3IuPGJyIC8+DQo8c3Ryb25nPmIuJm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7IDwvc3Ryb25nPklmIHRoZSBTcG9uc29yIGRldGVybWluZXMsIGluIGl0cyBzb2xlIGRpc2NyZXRpb24sIHRoYXQgbWFya2V0IGRhdGEgaXMgZXJyb25lb3VzLCB0aGUgU3BvbnNvciByZXNlcnZlcyB0aGUgcmlnaHQgdG8gY29ycmVjdCB0aGUgbWFya2V0IGRhdGEgaW4gYW55IHBoYXNlIG9mIHRoZSBjb21wZXRpdGlvbi48YnIgLz4NCjxzdHJvbmc+Yy48L3N0cm9uZz4mbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsgVGhlIGNvZGUgb2YgYSBUcmFkaW5nIFN5c3RlbSBtdXN0IGJlIGNvbXBhdGlibGUgdG8gTWF0bGFiJnJlZzsgMjAxNGEgYW5kIGJlIGNvbXBhdGlibGUgd2l0aCB0aGUgU3BvbnNvciZyc3F1bztzIGV2YWx1YXRpb24gcm91dGluZXMuJm5ic3A7IEEgc2FtcGxlIGV2YWx1YXRpb24gcm91dGluZSBpcyBwcm92aWRlZCBpbiBTcG9uc29yJnJzcXVvO3MgZGV2ZWxvcG1lbnQgdG9vbGJveCBvbiB3d3cuUXVhbnRpYWNzLmNvbS4mbmJzcDsgVGhlIGV2YWx1YXRpb24gcm91dGluZSBvbiB0aGUgc2VydmVycyBtYXkgZGlmZmVyIGZyb20gdGhlIHNhbXBsZSBldmFsdWF0aW9uLiZuYnNwOyBUaGUgZm9sbG93aW5nIE1hdGxhYiZyZWc7LVRvb2xib3hlcyAoUjIwMTRhKSBhcmUgc3VwcG9ydGVkOiZuYnNwOyBTdGF0aXN0aWNzLCBPcHRpbWl6YXRpb24sIFNpZ25hbCBQcm9jZXNzaW5nLCBOZXVyYWwgTmV0d29yaywgR2xvYmFsIE9wdGltaXphdGlvbiwgRmluYW5jaWFsLCBFY29ub21ldHJpY3MgYW5kIEN1cnZlIEZpdHRpbmcuPGJyIC8+DQo8c3Ryb25nPmQuJm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7IDwvc3Ryb25nPkFsdGVybmF0aXZlbHkgcGFydGljaXBhbnRzIG1heSBjaG9vc2UgdG8gdXNlIFB5dGhvbiBjb21wYXRpYmxlIHdpdGggdmVyc2lvbiAyLjcuOSBhbmQgdGhlIFNwb25zb3ImcnNxdW87cyBldmFsdWF0aW9uIHJvdXRpbmVzLiBBIHNhbXBsZSBldmFsdWF0aW9uIHJvdXRpbmUgaXMgcHJvdmlkZWQgaW4gdGhlIFNwb25zb3ImcnNxdW87cyBkZXZlbG9wbWVudCB0b29sYm94IG9uIHd3dy5RdWFudGlhY3MuY29tLiBUaGUgZXZhbHVhdGlvbiByb3V0aW5lIG9uIHRoZSBzZXJ2ZXJzIG1heSBkaWZmZXIgZnJvbSB0aGUgc2FtcGxlIGV2YWx1YXRpb24uIFRoZSBmb2xsb3dpbmcgUHl0aG9uIHRvb2xib3hlcyBhcmUgc3VwcG9ydGVkOiBudW1weSwgUGFuZGFzLCBzY2lweSwgc2NpLWtpdC5sZWFybi48YnIgLz4NCjxzdHJvbmc+ZS48L3N0cm9uZz4mbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsgVGhlIGV2YWx1YXRpb24gcm91dGluZSBzaW11bGF0ZXMgdGhlIGludGVyYWN0aW9uIHdpdGggYSBicm9rZXIgYW5kIGNvbXB1dGVzIHRoZSBwb3J0Zm9saW8gZXF1aXR5IGN1cnZlLiZuYnNwOyBUaGUgU3BvbnNvciByZXNlcnZlcyB0aGUgcmlnaHQgdG8gY29ycmVjdCBidWdzIGluIHRoZSBldmFsdWF0aW9uIHJvdXRpbmUgZHVyaW5nIHRoZSBjb3Vyc2Ugb2YgdGhlIENvbnRlc3QuJm5ic3A7IEluIHN1Y2ggYSBzY2VuYXJpbywgYWxsIFBhcnRpY2lwYW50cyB3aWxsIGJlIG5vdGlmaWVkIGFib3V0IHRoZSBjb3JyZWN0aW9uLCBUcmFkaW5nIFN5c3RlbXMgd2lsbCBiZSBjb21wdXRlZCBhZ2FpbiBhbmQgdGhlIGNvcnJlY3RlZCBwb3J0Zm9saW8gZXF1aXR5IGN1cnZlcyB3aWxsIGJlIGRpc3BsYXllZCBhdCB3d3cuUXVhbnRpYWNzLmNvbS48YnIgLz4NCjxzdHJvbmc+Zi4mbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsgPC9zdHJvbmc+QSBUcmFkaW5nIFN5c3RlbSBvbmx5IHF1YWxpZmllcyBmb3IgYSBHcmFuZCBQcml6ZSBpZiBpdCB3b3VsZCBoYXZlIHByb2R1Y2VkIHRoZSBzYW1lIHJldHVybnMsIFNoYXJwZSBSYXRpbyBhbmQgU2NvcmUgd2VyZSBpdCB0cmFkZWQgbGl2ZSBkdXJpbmcgdGhlIExpdmUgQ29udGVzdCBQZXJpb2Qgd2l0aCBhbiBhcmJpdHJhcnkgYnJva2VyIGFjY291bnQuJm5ic3A7IEluIG90aGVyIHdvcmRzLCBzaW11bGF0ZWQgcGVyZm9ybWFuY2UsIFNoYXJwZSBSYXRpbyBhbmQgU2NvcmUgY2Fubm90IHJlc3VsdCBmcm9tIGV4cGxvaXRhdGlvbiBvZiBhIGJ1ZyBpbiB0aGUgYmFjay10ZXN0aW5nIFRvb2xib3ggb3IgYSBsb29waG9sZSBpbiB0aGUgT2ZmaWNpYWwgUnVsZXMuPGJyIC8+DQo8c3Ryb25nPmcuPC9zdHJvbmc+Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7IEVhY2ggVHJhZGluZyBTeXN0ZW0gbXVzdCB1c2UgdGhlIHNhbWUgcnVsZXMgZm9yIHRoZSBlbnRpcmUgRXZhbHVhdGlvbiBQZXJpb2QgYW5kIG1heSBub3QgdmFyeSBpbiByZWxhdGlvbiB0byBjaGFuZ2VzIGluIHRpbWVzY2FsZSBmb3IgYXJiaXRyYXJ5IHBlcmlvZHMgb2YgeWVhcnMgKGUuZy4gJmxkcXVvO2RvbiZyc3F1bzt0IHRyYWRlIGluIDIwMDgmcmRxdW87IGlzIGFuIGludmFsaWQgcnVsZSkuPGJyIC8+DQo8c3Ryb25nPmguPC9zdHJvbmc+Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7IEVhY2ggVHJhZGluZyBTeXN0ZW0gbXVzdCB1c2UgcXVhbnRpdGF0aXZlIHJ1bGVzIG9ubHksIGFuZCBnZW5lcmF0ZSB0aGUgc2FtZSByZXN1bHQgaWYgcnVuIHR3aWNlIG9uIHRoZSBzYW1lIHBvcnRmb2xpby48YnIgLz4NCjxzdHJvbmc+aS4mbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsgPC9zdHJvbmc+SXQgaXMgcG9zc2libGUgdG8gdHJhZGUgbG9uZyBhbmQgc2hvcnQuPGJyIC8+DQo8c3Ryb25nPmouPC9zdHJvbmc+Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7IFRoZSBtYXJnaW4gcmVxdWlyZW1lbnQgaXMgYWx3YXlzIDEwMCUuJm5ic3A7IElmIHRoZXJlIGlzIG5vdCBzdWZmaWNpZW50IGNhcGl0YWwgdG8gY292ZXIgYWxsIGN1cnJlbnQgb3BlbiBwb3NpdGlvbnMsIHRoZW4gdGhlIFRyYWRpbmcgU3lzdGVtJnJzcXVvO3MgYXNzZXRzIHdpbGwgZGVjcmVhc2UgcHJvcG9ydGlvbmFsbHkgYWNyb3NzIGFsbCBob2xkaW5ncyB1bnRpbCB0aGUgbWFyZ2luIHJlcXVpcmVtZW50cyBhcmUgbWV0LjxiciAvPg0KPHN0cm9uZz5rLjwvc3Ryb25nPiZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyBBIHRyYW5zYWN0aW9uIGZlZSBvZiA1JSAqIEhJR0gtTE9XIGlzIGRlZHVjdGVkIGZvciBldmVyeSBjaGFuZ2UgaW4gcG9zaXRpb24gc2l6ZS4mbmJzcDsgVGhpcyBzaW11bGF0ZXMgdGhlIGltcGFjdCBvZiBzbGlwcGFnZSBhbmQgY29tbWlzc2lvbnMuPGJyIC8+DQo8c3Ryb25nPmwuJm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7IDwvc3Ryb25nPlRoZSBsb25nZXN0IHBlcm1pdHRlZCBsb29rYmFjayBwZXJpb2QgaXMgMjUyMCB0cmFkaW5nIGRheXMuPGJyIC8+DQo8c3Ryb25nPm0uJm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7IDwvc3Ryb25nPkVhY2ggVHJhZGluZyBTeXN0ZW0gbXVzdCBoYXZlIGEgcnVudGltZSBvZiBsZXNzIHRoYW4gZml2ZSBtaW51dGVzIG9uIHRoZSBTcG9uc29yJnJzcXVvO3Mgc2VydmVycy48YnIgLz4NCjxzdHJvbmc+bi4mbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsgPC9zdHJvbmc+SWYgYSBUcmFkaW5nIFN5c3RlbSBjYXVzZXMgYSBydW50aW1lIGVycm9yLCBhbGwgcG9zaXRpb25zIHdpbGwgYmUgY2xvc2VkLiZuYnNwOyBJdCB3aWxsIGJlIGNhbGxlZCBhZ2FpbiB3aXRoIHRoZSBuZXh0IGF2YWlsYWJsZSBzZXQgb2YgbWFya2V0IGRhdGEsIGFuZCBzbyBmb3J0aC4mbmJzcDsgQXMgc29vbiBhcyB0aGUgVHJhZGluZyBTeXN0ZW0gcmVzdW1lcyBmdW5jdGlvbmluZywgcG9zaXRpb25zIHdpbGwgYmUgYnVpbHQgdXAgYWNjb3JkaW5nbHkuPGJyIC8+DQo8c3Ryb25nPm8uPC9zdHJvbmc+Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7IFRoZSB1c2Ugb2YgdGhlIGZvbGxvd2luZyBNYXRsYWIgaXRlbXMgYW5kIHRoZWlyIFB5dGhvbiBlcXVpdmFsZW50cyBhcmUgcHJvaGliaXRlZDxiciAvPg0KaS4mbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsgTUVYLWZpbGVzPGJyIC8+DQppaS4mbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsgSmF2YSBjb21tYW5kcyBvciBvYmplY3QgY3JlYXRpb248YnIgLz4NCmlpaS4mbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsgZXZhbCwgZmV2YWwsIGlubGluZSwgYW5kIGZ1bmN0aW9uIGhhbmRsZXM8YnIgLz4NCml2LiZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyBTaGVsbCBlc2NhcGVzIHN1Y2ggYXMgISwgZG9zLCB1bml4LCBhbmQgc3lzdGVtPGJyIC8+DQp2LiZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyBIYW5kbGUgR3JhcGhpY3MgY29tbWFuZHM8YnIgLz4NCnZpLiZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyBBY3RpdmVYIGNvbW1hbmRzPGJyIC8+DQp2aWkuJm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7IEZpbGUgSS9PIGNvbW1hbmRzPGJyIC8+DQp2aWlpLiZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyBEZWJ1Z2dpbmcgY29tbWFuZHM8YnIgLz4NCml4LiZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyBQcmludGluZyBjb21tYW5kczxiciAvPg0KeC4mbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsgU2ltdWxpbmsgY29tbWFuZHM8YnIgLz4NCnhpLiZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyBCZW5jaG1hcmsgY29tbWFuZHMgc3VjaCBhcyB0aWMsIHRvYywgZmxvcHMsIGNsb2NrLCBhbmQgcGF1c2U8YnIgLz4NCnhpaS4mbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsgZXJyb3IsIGNsZWFyLCBhbmQgcGVyc2lzdGVudCBmdW5jdGlvbnM8YnIgLz4NCjxzdHJvbmc+cC4mbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsgPC9zdHJvbmc+RW50cmllcyBjb21wcm9taXNpbmcgY29udGVzdCBtYWNoaW5lcnkgYXJlIHByb2hpYml0ZWQgYW5kIHdpbGwgcmVzdWx0IGluIGRpc3F1YWxpZmljYXRpb24uPGJyIC8+DQo8c3Ryb25nPnEuJm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7IDwvc3Ryb25nPk1hbmlwdWxhdGluZyB0aGUgU2NvcmUsIHJ1bnRpbWUsIG9yIGVycm9yIGNvbmRpdGlvbnMgaXMgcHJvaGliaXRlZCBhbmQgd2lsbCByZXN1bHQgaW4gZGlzcXVhbGlmaWNhdGlvbi48YnIgLz4NCjxzdHJvbmc+OC4mbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsgRXZhbHVhdGlvbiBhbmQgU2NvcmluZzo8L3N0cm9uZz4mbmJzcDsgQXQgdGhlIGVuZCBvZiB0aGUgRXZhbHVhdGlvbiBUZXJtLCB0aGUgZmluYWwgJmxkcXVvO1Njb3JlJnJkcXVvOyBvZiBhbGwgcGFydGljaXBhdGluZyBUcmFkaW5nIFN5c3RlbXMgd2lsbCBiZSBjb21wdXRlZCBhcyBmb2xsb3dzOjxiciAvPg0KPHN0cm9uZz48aW1nIGFsdD0iIiBzcmM9In4vSW1hZ2VzL0Zvcm11bGFTY29yZVNtYWxsLmFzcHgiIC8+PGJyIC8+DQo5LiZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyBQcml6ZXM6PC9zdHJvbmc+PGJyIC8+DQo8c3Ryb25nPmEuJm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7IDwvc3Ryb25nPkVsaWdpYmxlIFBhcnRpY2lwYW50cyB3aG8gc3VibWl0IGEgJmxkcXVvO3VuaXF1ZSZsZHF1bzsgVHJhZGluZyBTeXN0ZW0gZHVyaW5nIHRoZSBFbnRyeSBQZXJpb2QgY29tcGV0ZSBmb3IgdGhlIGdyYW5kIHByaXplLiZuYnNwOyBUaGUgdW5pcXVlbmVzcyBvZiBhIFRyYWRpbmcgU3lzdGVtIGlzIGRldGVybWluZWQgYnkgdGhlIGxpbmVhciBjb3JyZWxhdGlvbiBvZiB0aGUgcmV0dXJucyBvZiBhIHN1Ym1pc3Npb24gdG8gdGhlIHJldHVybnMgb2YgYW55IG90aGVyIHRyYWRpbmcgc3lzdGVtcyBwcmV2aW91c2x5IHN1Ym1pdHRlZCB0byBRdWFudGlhY3MuJm5ic3A7IEFuIGVudHJ5IHNoYWxsIGJlIGRlZW1lZCB1bmlxdWUgaWYgdGhlIG1heGltdW0gb2YgdGhlIGxpbmVhciBjb3JyZWxhdGlvbnMgdG8gYWxsIHRyYWRpbmcgc3lzdGVtcyBzdWJtaXR0ZWQgdG8gdGhlIFNwb25zb3ImcnNxdW87cyBwbGF0Zm9ybSBiZWZvcmUgQXByaWwgMjAsIDIwMTUgaXMgbGVzcyB0aGFuIDAuODUuPGJyIC8+DQo8c3Ryb25nPmIuJm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7IDwvc3Ryb25nPkVhY2ggUGFydGljaXBhbnQmcnNxdW87cyBzaW5nbGUgcXVhbGlmeWluZyBlbnRyeSBmb3IgdGhlIEdyYW5kIFByaXplIHNoYWxsIGJlIHRoZSBUcmFkaW5nIFN5c3RlbSB0aGF0IHByb2R1Y2VzIHRoZSBzaW5nbGUgaGlnaGVzdCBTY29yZSBmb3IgdGhlIEV2YWx1YXRpb24gUGVyaW9kIHJlZ2FyZGxlc3Mgb2YgdGhlIG51bWJlciBvZiBUcmFkaW5nIFN5c3RlbSB0aGUgUGFydGljaXBhbnQgaGFzIHN1Ym1pdHRlZC4mbmJzcDsgVGhlIHRocmVlIFBhcnRpY2lwYW50cyBoYXZpbmcgdGhlIHRocmVlIGhpZ2hlc3Qgb3ZlcmFsbCBTY29yZXMgYXQgdGhlIGVuZCBvZiB0aGUgTGl2ZSBDb250ZXN0IFBlcmlvZCB3aWxsIGJlIGF3YXJkZWQgYW4gYWxsb2NhdGlvbiB0byB0aGVpciBzdHJhdGVneSwgYXMgc2V0IGZvcnRoIGJlbG93LCBjb21tZW5jaW5nIG5vIGxhdGVyIHRoYW4gd2l0aGluIHRoaXJ0eSAoMzApIGRheXMgb2YgdGhlIGNvbmNsdXNpb24gb2YgdGhlIExpdmUgQ29udGVzdCBQZXJpb2QuJm5ic3A7IFRoZSB3aW5uZXJzIHNoYWxsIHJlY2VpdmUgcGVyZm9ybWFuY2UgZmVlcyBvZiB0ZW4gcGVyY2VudCAoMTAlKSBvZiBOZXQgTmV3IFByb2ZpdHMgYmFzZWQgb24gdGhlIHBlcmZvcm1hbmNlIG9mIHRoZWlyIFRyYWRpbmcgU3lzdGVtcyBhcyBzZXQgZm9ydGggaW4gdGhlIFNwb25zb3ImcnNxdW87cyBVc2VyIEFncmVlbWVudC4mbmJzcDsgVGhlIGFsbG9jYXRpb25zIHNoYWxsIGNvbnRpbnVlIGZvciBhIG1pbmltdW0gb2Ygb25lICgxKSB5ZWFyIHByb3ZpZGVkIHRoYXQgdGhlIFRyYWRpbmcgU3lzdGVtJnJzcXVvO3MgU2NvcmUgZG9lcyBub3QgZHJvcCBiZWxvdyBpdHMgU2NvcmUgYXMgb2YgdGhlIGNvbmNsdXNpb24gb2YgdGhlIExpdmUgQ29udGVzdCBQZXJpb2QuJm5ic3A7IElmIHRoZSBsaXZlIFNoYXJwZSBSYXRpbyBvZiBhIFRyYWRpbmcgU3lzdGVtIChpLmUuIHRoZSBTaGFycGUgUmF0aW8gb2YgYWxsIHRyYWRpbmcgZGF5cyBzdWJzZXF1ZW50IHRvIHRoZSBjb21tZW5jZW1lbnQgb2YgdGhlIExpdmUgQ29udGVzdCBQZXJpb2QpIGRyb3BzIGJlbG93IHRoZSBTY29yZSBvZiB0aGUgVHJhZGluZyBTeXN0ZW0gYXMgb2YgdGhlIGNvbmNsdXNpb24gb2YgdGhlIExpdmUgQ29udGVzdCBQZXJpb2QsIHRoZW4gdGhlIFNwb25zb3IsIGluIGl0cyBzb2xlIGRpc2NyZXRpb24sIG1heSByZWR1Y2Ugb3IgZWxpbWluYXRlIHRoZSBhbGxvY2F0aW9uIHRvIGEgd2lubmluZyBUcmFkaW5nIFN5c3RlbS4mbmJzcDsgVGhlIGFtb3VudHMgYWxsb2NhdGVkIHRvIHRoZSB3aW5uaW5nIFRyYWRpbmcgU3lzdGVtcyBhcmU6ICZuYnNwOzxiciAvPg0KJm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7IEhpZ2hlc3QgU2NvcmU6Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7ICZuYnNwOyZuYnNwOyAkMSwwMDAsMDAwPGJyIC8+DQombmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsgU2Vjb25kIGhpZ2hlc3QgU2NvcmU6Jm5ic3A7Jm5ic3A7Jm5ic3A7ICQ3NTAsMDAwPGJyIC8+DQombmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsgVGhpcmQgaGlnaGVzdCBTY29yZTombmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsgJm5ic3A7Jm5ic3A7JDUwMCwwMDA8YnIgLz4NCjxzdHJvbmc+Yy4mbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsgPC9zdHJvbmc+VGhlIGF3YXJkcyB3aWxsIGJlIG1hZGUgdG8gdGhlIHdpbm5pbmcgUGFydGljaXBhbnRzIHdpdGhpbiB0aGlydHkgKDMwKSBkYXlzIG9mIHRoZSB0ZXJtaW5hdGlvbiBvZiB0aGUgQ29udGVzdC4mbmJzcDsgTm8gcGF5bWVudCBvciBwdXJjaGFzZSBpcyBuZWNlc3NhcnkgdG8gd2luLjxiciAvPg0KPHN0cm9uZz5kLiZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyA8L3N0cm9uZz5UaGUgdGhyZWUgUGFydGljaXBhbnRzIGhhdmluZyB0aGUgdGhyZWUgaGlnaGVzdCBvdmVyYWxsIFNoYXJwZSBSYXRpb3Mgb24gTWF5IDIyLCAyMDE1IGF0IG1pZG5pZ2h0ICh0aGUgZW5kIG9mIHRoZSBEYXJrbmVzcyBDb250ZXN0IFBlcmlvZCkgd2lsbCBiZSBhd2FyZGVkIGEgU3ltYSBYNUMgMi40RyA2IEF4aXMgR1lSTyBIRCBDYW1lcmEgUkMgUXVhZGNvcHRlciwgc2hpcHBlZCB0byB0aGVpciByZXNpZGVudGlhbCBVLlMuIGFkZHJlc3Mgbm8gbGF0ZXIgdGhhbiBNYXkgMzEsIDIwMTUuJm5ic3A7PGJyIC8+DQo8c3Ryb25nPmUuJm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7IDwvc3Ryb25nPlRoZSB0aHJlZSBQYXJ0aWNpcGFudHMgaGF2aW5nIHRoZSB0aHJlZSBoaWdoZXN0IG92ZXJhbGwgU2hhcnBlIFJhdGlvcyBvbiBKdW5lIDEyLCAyMDE1IGF0IG1pZG5pZ2h0ICh0aGUgZW5kIG9mIHRoZSBUd2lsaWdodCBDb250ZXN0IFBlcmlvZCkgYW5kIG5vdCBoYXZpbmcgYWxyZWFkeSB3b24gYSBwcml6ZSB0aGUgZW5kIG9mIHRoZSBEYXJrbmVzcyBDb250ZXN0IFBlcmlvZCB3aWxsIGJlIGF3YXJkZWQgYSBTeW1hIFg1QyAyLjRHIDYgQXhpcyBHWVJPIEhEIENhbWVyYSBSQyBRdWFkY29wdGVyLCBzaGlwcGVkIHRvIHRoZWlyIHJlc2lkZW50aWFsIFUuUy4gYWRkcmVzcyBubyBsYXRlciB0aGFuIEp1bmUgMzAsIDIwMTUuJm5ic3A7PGJyIC8+DQo8c3Ryb25nPjEwLiZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyBNaXNjZWxsYW5lb3VzOjwvc3Ryb25nPjxiciAvPg0KPHN0cm9uZz5hLiZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyA8L3N0cm9uZz5BbGwgdGltZXMgdXNlZCBpbiB0aGVzZSBPZmZpY2lhbCBSdWxlcyBhcmUgUGFjaWZpYyBTdGFuZGFyZCBUaW1lLjxiciAvPg0KPHN0cm9uZz5iLiZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyA8L3N0cm9uZz5UaGUgU3BvbnNvciByZXNlcnZlcyB0aGUgcmlnaHQsIGluIGl0cyBzb2xlIGRpc2NyZXRpb24sIHRvIGV4Y2x1ZGUsIGJhciBvciBvdGhlcndpc2UgcGVuYWxpemUgYW55IFBhcnRpY2lwYW50IGlmIHN1Y2ggUGFydGljaXBhbnQmcnNxdW87cyBDb250ZXN0IGVudHJ5IGNvbnRhaW5zIG1hbGljaW91cyBvciBoYXJtZnVsIGNvZGUgb3IgaWYgc3VjaCBQYXJ0aWNpcGFudCBvdGhlcndpc2UgcG9zZXMgYW55IHRocmVhdCBvZiBkYW1hZ2UgdG8gdGhlIFNwb25zb3Igb3IgdGhlIGludGVncml0eSBvZiB0aGlzIENvbnRlc3QuPGJyIC8+DQo8c3Ryb25nPmMuJm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7IDwvc3Ryb25nPkJ5IHN1Ym1pdHRpbmcgYSBUcmFkaW5nIFN5c3RlbSB0byB0aGUgU3BvbnNvciwgZWFjaCBQYXJ0aWNpcGFudCBncmFudHMgdG8gdGhlIFNwb25zb3IgdGhlIExpY2Vuc2UgdG8gdXNlIHRoZSBUcmFkaW5nIFN5c3RlbSBhcyBzZXQgZm9ydGggaW4gdGhlIFNwb25zb3ImcnNxdW87cyBVc2VyIEFncmVlbWVudC48YnIgLz4NCjxzdHJvbmc+ZC4mbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsgPC9zdHJvbmc+VGhlIFNwb25zb3IgcmVzZXJ2ZXMgdGhlIHJpZ2h0LCBpbiBpdHMgc29sZSBkaXNjcmV0aW9uLCB0byBtb2RpZnkgdGhlIE9mZmljaWFsIFJ1bGVzIGlmIG5lY2Vzc2FyeSB0byBwcmVzZXJ2ZSB0aGUgaW50ZWdyaXR5IG9mIHRoZSBDb250ZXN0LjxiciAvPg0KPHN0cm9uZz5lLiZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyA8L3N0cm9uZz5UaGUgU3BvbnNvciByZXNlcnZlcyB0aGUgcmlnaHQgdG8gZGlzcXVhbGlmeSBhbmQgcHJvaGliaXQgZnJvbSBwYXJ0aWNpcGF0aW5nIGFueSBwZXJzb24gd2hvIHRoZSBTcG9uc29yIGRldGVybWluZXMgaW4gaXRzIHNvbGUgZGlzY3JldGlvbiBpcyBvciBpcyBhdHRlbXB0aW5nIHRvIChpKSB0YW1wZXIgd2l0aCBTcG9uc29yJnJzcXVvO3Mgd2Vic2l0ZTsgKGlpKSB1bmRlcm1pbmUgdGhlIGxlZ2l0aW1hdGUgb3BlcmF0aW9uIG9mIHRoZSBDb250ZXN0IGJ5IGNoZWF0aW5nLCBkZWNlcHRpb24gb3Igb3RoZXIgdW5mYWlyIHRhY3RpYzsgYW5kL29yIChpaWkpIG90aGVyd2lzZSB2aW9sYXRlIHRoZXNlIE9mZmljaWFsIFJ1bGVzIG9yIFNwb25zb3ImcnNxdW87cyBVc2VyIEFncmVlbWVudC48YnIgLz4NCjxzdHJvbmc+Zi4mbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsgPC9zdHJvbmc+QWxsIHRheGVzLCBmZWVzIGFuZCBzdXJjaGFyZ2VzIG9uIGF3YXJkcyBhbmQgcHJpemVzIGFyZSB0aGUgc29sZSByZXNwb25zaWJpbGl0eSBvZiB0aGUgd2lubmVyLiZuYnNwOyBJbiB0aGUgZXZlbnQgdGhhdCBhIHdpbm5lciBpcyBpbmVsaWdpYmxlIG9yIHJlZnVzZXMgYW4gYXdhcmQgb3IgcHJpemUsIHRoZSBhd2FyZCBvciBwcml6ZSB3aWxsIGJlIGZvcmZlaXRlZCBhbmQgU3BvbnNvciwgaW4gaXRzIHNvbGUgZGlzY3JldGlvbiwgbWF5IGNob29zZSB3aGV0aGVyIHRvIGdyYW50IHRoZSBhd2FyZCBvciBwcml6ZSB0byBhbm90aGVyIFBhcnRpY2lwYW50LjxiciAvPg0KJm5ic3A7ZGSUqSP8LVMpgOV0bfIN9YXJtpoetkCFIngSVWBJmYnVXw==">
+</div>
+
+<script async="" src="./Matlab Toolbox to Backtest Your Trading Algorithms_files/analytics.js"></script><script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form'];
+if (!theForm) {
+    theForm = document.form;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="./Matlab Toolbox to Backtest Your Trading Algorithms_files/WebResource.axd" type="text/javascript"></script>
+
+
+<script src="./Matlab Toolbox to Backtest Your Trading Algorithms_files/GetResource(14).ashx" type="text/javascript"></script>
+<script src="./Matlab Toolbox to Backtest Your Trading Algorithms_files/GetResource(15).ashx" type="text/javascript"></script>
+<script src="./Matlab Toolbox to Backtest Your Trading Algorithms_files/GetResource(16).ashx" type="text/javascript"></script><input type="hidden" name="lng" id="lng" value="en-US">
+<script src="./Matlab Toolbox to Backtest Your Trading Algorithms_files/GetResource(17).ashx" type="text/javascript"></script>
+<script type="text/javascript">
+	//<![CDATA[
+
+function PM_Postback(param) { if (window.top.HideScreenLockWarningAndSync) { window.top.HideScreenLockWarningAndSync(1080); }__doPostBack('m',param); }
+function PM_Callback(param, callback, ctx) { if (window.top.HideScreenLockWarningAndSync) { window.top.HideScreenLockWarningAndSync(1080); }WebForm_DoCallback('m',param,callback,ctx,null,true); }
+//]]>
+</script>
+<script src="./Matlab Toolbox to Backtest Your Trading Algorithms_files/ScriptResource.axd" type="text/javascript"></script>
+<script src="./Matlab Toolbox to Backtest Your Trading Algorithms_files/ScriptResource(1).axd" type="text/javascript"></script>
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="A5343185">
+</div>
+    <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('manScript', 'form', ['tctxM',''], [], [], 90, '');
+//]]>
+</script>
+<div id="CMSHeaderDiv">
+	
+<script type="text/javascript" language="javascript">
+    //<![CDATA[
+    var refreshPageOnClose = false;
+
+    function RefreshWOpener(w) {
+        if (refreshPageOnClose || w.refreshPageOnClose) {
+            var reloadUrl = '';
+
+            if ((w.reloadPageUrl) && (w.reloadPageUrl.length > 0)) {
+                reloadUrl = w.reloadPageUrl;
+            }
+            else {
+                reloadUrl = window.location.href;
+            }
+
+            window.location = reloadUrl.replace('safemode=1', 'safemode=0');
+        }
+    }
+    //]]>
+</script>
+
+
+
+<!-- -->
+</div>
+    <div id="ctxM">
+
+</div>
+    
+  <script type="text/javascript">
+    function acceptRules(){
+    var url=document.URL;
+       alert(url);
+      if(url.indexOf('?') != -1) {url=url+"&acceptRules=1";}
+        else {url=url+"?acceptRules=1";}
+  
+      window.location=url;
+      window.location.reload();
+      alert(url);
+     
+    }
+  </script>  
+
+	<!--[if lt IE 7]>
+	<style media="screen" type="text/css">
+	#container {height:100%;}
+	</style>
+	<![endif]-->
+
+	<!-- BindTuning head elements TT -->
+	<script type="text/javascript">
+		if (typeof jQuery == 'undefined') {document.write("<script type='text/javascript' src='/App_Themes/QuantNet/js/jquery.min.js'><" + "/script>");}
+	</script>
+	<script type="text/javascript">
+		jQuery('head').append('<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">');
+	</script>
+	<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+		<script src="/App_Themes/QuantNet/js/html5shiv.js"></script>
+	<![endif]-->
+	<script type="text/javascript" src="./Matlab Toolbox to Backtest Your Trading Algorithms_files/bootstrap.min.js"></script>
+<script type="text/javascript" src="./Matlab Toolbox to Backtest Your Trading Algorithms_files/BindMENU.js"></script>
+<script type="text/javascript" src="./Matlab Toolbox to Backtest Your Trading Algorithms_files/fix-responsive-WP8.js"></script>
+<script type="text/javascript" src="./Matlab Toolbox to Backtest Your Trading Algorithms_files/jqFlickrGallery.js"></script>
+<script type="text/javascript" src="./Matlab Toolbox to Backtest Your Trading Algorithms_files/jquery.prettyPhoto.js"></script>
+<script type="text/javascript" src="./Matlab Toolbox to Backtest Your Trading Algorithms_files/populateSelectNav.js"></script>
+<script type="text/javascript" src="./Matlab Toolbox to Backtest Your Trading Algorithms_files/twitter.js"></script>
+<script type="text/javascript" src="./Matlab Toolbox to Backtest Your Trading Algorithms_files/jquery.smooth-scroll.js"></script>
+<script type="text/javascript" src="./Matlab Toolbox to Backtest Your Trading Algorithms_files/qa.utilities.js"></script>
+<script type="text/javascript" src="./Matlab Toolbox to Backtest Your Trading Algorithms_files/qa.template.js"></script>
+<script type="text/javascript">
+  jQuery(document).ready(qa.template.setOnScroll); 
+</script>
+<!--Apply class to body with browser version-->
+<script type="text/javascript">
+    var nVer = navigator.appVersion; var nAgt = navigator.userAgent; var bN = navigator.appName; var fullV = "" + parseFloat(navigator.appVersion); var majorV = parseInt(navigator.appVersion, 10); var nameOffset, verOffset, ix; if ((verOffset = nAgt.indexOf("Opera")) !== -1) { bN = "Opera"; fullV = nAgt.substring(verOffset + 6); if ((verOffset = nAgt.indexOf("Version")) !== -1) { fullV = nAgt.substring(verOffset + 8) } } else { if ((verOffset = nAgt.indexOf("MSIE")) !== -1) { bN = "IE"; fullV = nAgt.substring(verOffset + 5) } else { if ((verOffset = nAgt.indexOf("Chrome")) !== -1) { bN = "Chrome"; fullV = nAgt.substring(verOffset + 7) } else { if ((verOffset = nAgt.indexOf("Safari")) !== -1) { bN = "Safari"; fullV = nAgt.substring(verOffset + 7); if ((verOffset = nAgt.indexOf("Version")) !== -1) { fullV = nAgt.substring(verOffset + 8) } } else { if ((verOffset = nAgt.indexOf("Firefox")) !== -1) { bN = "Firefox"; fullV = nAgt.substring(verOffset + 8) } else { if ((nameOffset = nAgt.lastIndexOf(" ") + 1) < (verOffset = nAgt.lastIndexOf("/"))) { bN = nAgt.substring(nameOffset, verOffset); fullV = nAgt.substring(verOffset + 1); if (bN.toLowerCase() == bN.toUpperCase()) { bN = navigator.appName } } } } } } } if ((ix = fullV.indexOf(";")) !== -1) { fullV = fullV.substring(0, ix) } if ((ix = fullV.indexOf(" ")) !== -1) { fullV = fullV.substring(0, ix) } majorV = parseInt("" + fullV, 10); if (isNaN(majorV)) { fullV = "" + parseFloat(navigator.appVersion); majorV = parseInt(navigator.appVersion, 10) } 
+    document.getElementsByTagName("body")[0].className += " " +  bN + " " +  bN + majorV + " cmsKENTICO cmsKENTICO6";
+</script>
+<!--[if lte IE 7]>
+<link rel="stylesheet" href="/App_Themes/QuantNet/css/ie7.css" type="text/css"/>
+<![endif]-->
+
+<script type="text/javascript">
+	(function( $ ) {
+		$('head').append('<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Oswald:400,300,700">');
+		$('head').append('<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans">');
+	})(jQuery);
+</script>
+<!-- Google Code for Tracking SignUp | Button Click | Teletrader Implementation Conversion Page 
+In your html page, add the snippet and call 
+goog_report_conversion when someone clicks on the 
+chosen link or button. --> 
+<script type="text/javascript"> 
+ /* <![CDATA[ */ 
+ goog_snippet_vars = function() { 
+   var w = window; 
+   w.google_conversion_id = 999316423; 
+   w.google_conversion_label = "Pct-CImVw2AQx7fB3AM"; 
+   w.google_remarketing_only = false; 
+ } 
+ // DO NOT CHANGE THE CODE BELOW. 
+ goog_report_conversion = function(url) { 
+   goog_snippet_vars(); 
+   window.google_conversion_format = "3"; 
+   window.google_is_call = true; 
+   var opt = new Object(); 
+   opt.onload_callback = function() { 
+   if (typeof(url) != 'undefined') { 
+     window.location = url; 
+   } 
+ } 
+ var conv_handler = window['google_trackConversion']; 
+ if (typeof(conv_handler) == 'function') { 
+   conv_handler(opt); 
+ } 
+} 
+/* ]]> */ 
+</script> 
+<script type="text/javascript" src="./Matlab Toolbox to Backtest Your Trading Algorithms_files/conversion_async.js">
+</script>
+<script type="text/javascript">
+  jQuery(document).ready(function(){
+		jQuery('#p_lt_CMSPagePlaceholder_lt_L3_Zone50_3_TtRegistrationform_WithModal_btnOk').click(function(){
+		goog_report_conversion();	
+        ga('send', 'event', 'quantiacsSignup', 'registration');
+		})	
+	});
+</script>
+
+
+ 
+<div id="container">
+ <div>
+  <header class="headerSticky">
+    <div class="topBar">
+      <div class="container">
+        
+        <div class="loginUpload">
+          <table>
+            <tbody><tr>
+              <td>
+                
+<input type="submit" name="p$lt$BindLOGIN$btnSignOut" value="Logout" id="p_lt_BindLOGIN_btnSignOut" class="width100 btn btn-info btn-small">
+
+              </td>
+              <td>
+                
+                <input type="submit" class="width100 btn btn-success btn-small" value="Upload" onclick="window.location=&#39;/Upload.aspx&#39;;return false;">
+                
+              </td>
+            </tr>
+          </tbody></table>
+        </div>
+            
+              <div class="myArea">
+                  <ul>
+                    <li><span><a href="https://quantiacs.com/Members/Systems">My Area:</a></span></li>
+                    <!--<li><a href="/Members/Management/Messages.aspx">My Messages (0 unread)</a></li>-->
+                    <li><a href="https://quantiacs.com/Members/Management/Systems.aspx">My Trading Systems</a></li>
+                    <li><a href="https://quantiacs.com/Members/Management/Profile.aspx">My Profile</a></li>
+                    <!--<li><a href="/Members/Management/Friends.aspx">My Friends</a></li>   -->
+                  </ul>
+                </div>
+              
+      </div>
+    </div>
+     
+    <div class="logoMenu logoMenuSimple">
+      <div class="container">
+        <div class="row-fluid">
+          <div class="span4" id="Logo"><a id="p_lt_BindLOGO_Link_btnElem_hyperLink" href="https://quantiacs.com/Home.aspx"><img id="p_lt_BindLOGO_Link_btnElem_image" src="./Matlab Toolbox to Backtest Your Trading Algorithms_files/quantiacs-logo.png"><span id="p_lt_BindLOGO_Link_btnElem_lblText"></span></a>
+         </div>
+         <div class="span8" id="MenuH">
+            <div class="Horizontal" style="float:right;">
+	<ul class="CMSListMenuUL" id="CMSListMenu1">
+		<li class="CMSListMenuLI" style=""><a href="https://quantiacs.com/Home.aspx" class="CMSListMenuLink" style="">Home</a></li>
+		<li class="CMSListMenuLI"><a href="https://quantiacs.com/About.aspx" class="CMSListMenuLink">About</a></li>
+		<li class="CMSListMenuLI" style=""><a href="https://quantiacs.com/Blog.aspx" class="CMSListMenuLink" style="">Blog</a></li>
+		<li class="CMSListMenuLI" style=""><a href="https://quantiacs.com/Systems.aspx" class="CMSListMenuLink" style="">Systems</a>
+		<ul class="CMSListMenuUL submenu" style="position: absolute; display: none;">
+			<li class="CMSListMenuLI" style=""><a href="https://quantiacs.com/Systems/LiveSystems.aspx" class="CMSListMenuLink" style="">Invested</a></li>
+		</ul>
+		</li>
+		<li class="CMSListMenuLI" style=""><a href="https://quantiacs.com/GetStarted.aspx" class="CMSListMenuLink" style="">For Quants</a>
+		<ul class="CMSListMenuUL submenu" style="display: none; position: absolute;">
+			<li class="CMSListMenuLI" style=""><a href="https://quantiacs.com/For-Quants/GetStarted.aspx" class="CMSListMenuLink" style="">Get Started</a>
+			<ul class="CMSListMenuUL submenu" style="display: none; position: absolute;">
+				<li class="CMSListMenuLI"><a href="https://quantiacs.com/For-Quants/GetStarted/AlgoTrading101.aspx" class="CMSListMenuLink">Algorithmic Trading 101</a></li>
+				<li class="CMSListMenuLI"><a href="https://quantiacs.com/For-Quants/GetStarted/TradSys101.aspx" class="CMSListMenuLink">Trading System 101</a></li>
+				<li class="CMSListMenuLI" style=""><a href="https://quantiacs.com/For-Quants/GetStarted/QuantiacsToolbox.aspx" class="CMSListMenuLink" style="">Quantiacs' Toolbox</a></li>
+				<li class="CMSListMenuLI"><a href="https://quantiacs.com/For-Quants/GetStarted/Markets.aspx" class="CMSListMenuLink">Markets</a></li>
+				<li class="CMSListMenuLI"><a href="https://quantiacs.com/For-Quants/GetStarted/Quant-Tutorials.aspx" class="CMSListMenuLink">Quant Tutorials</a></li>
+				<li class="CMSListMenuLI" style=""><a href="https://quantiacs.com/For-Quants/GetStarted/FAQ.aspx" class="CMSListMenuLink" style="">FAQs</a></li>
+			</ul>
+			</li>
+			<li class="CMSListMenuLI" style=""><a href="https://quantiacs.com/Algorithmic-Trading-Competition" class="CMSListMenuLink" style="">Competitions</a>
+			<ul class="CMSListMenuUL submenu" style="display: none; position: absolute;">
+				<li class="CMSListMenuLI" style=""><a href="https://quantiacs.com/For-Quants/Competitions/Q5-Competition.aspx" class="CMSListMenuLink" style="">Open: Q5 Competition</a></li>
+				<li class="CMSListMenuLI" style=""><a href="https://quantiacs.com/For-Quants/Competitions/Q4-Competition.aspx" class="CMSListMenuLink" style="">Evaluating: Q4 Competition</a></li>
+				<li class="CMSListMenuLI" style=""><a href="https://quantiacs.com/For-Quants/Competitions/Q3-Competition.aspx" class="CMSListMenuLink" style="">Closed: Q3 Competition</a></li>
+				<li class="CMSListMenuLI" style=""><a href="https://quantiacs.com/For-Quants/Competitions/q2competition.aspx" class="CMSListMenuLink" style="">Closed: Q2 Competition</a></li>
+				<li class="CMSListMenuLI" style=""><a href="https://quantiacs.com/For-Quants/Competitions/Futures-Contest-Ranking.aspx" class="CMSListMenuLink" style="">Closed: Futures Competition</a></li>
+				<li class="CMSListMenuLI" style=""><a href="https://quantiacs.com/For-Quants/Competitions/KickoffContestRanking.aspx" class="CMSListMenuLink" style="">Closed: Kickoff Competition</a></li>
+			</ul>
+			</li>
+			<li class="CMSListMenuLI" style=""><a href="https://quantiacs.com/For-Quants/Refer-a-Quant.aspx" class="CMSListMenuLink" style="">Refer a Quant</a></li>
+		</ul>
+		</li>
+		<li class="CMSListMenuLI"><a href="https://quantiacs.com/Forums.aspx" class="CMSListMenuLink">Forums</a></li>
+	</ul>
+
+          </div>
+         </div><div class="mobile-menu" id="MenuM"><span class="active-menu-label"></span><input type="button" id="MobileMenuOpen"><ul class="select" style="display: none;">
+		<li><a href="https://quantiacs.com/Home.aspx">Home</a></li>
+		<li><a href="https://quantiacs.com/About.aspx">About</a></li>
+		<li><a href="https://quantiacs.com/Blog.aspx">Blog</a></li>
+		<li><a href="https://quantiacs.com/Systems.aspx">Systems</a><span class="toggle-submenu collapsed">&gt;</span>
+		<ul style="display: none;">
+			<li><a href="https://quantiacs.com/Systems/LiveSystems.aspx">Invested</a></li>
+		</ul>
+		</li>
+		<li><a href="https://quantiacs.com/GetStarted.aspx">For Quants</a><span class="toggle-submenu collapsed">&gt;</span>
+		<ul style="display: none;">
+			<li><a href="https://quantiacs.com/For-Quants/GetStarted.aspx">Get Started</a><span class="toggle-submenu collapsed">&gt;</span>
+			<ul style="display: none;">
+				<li><a href="https://quantiacs.com/For-Quants/GetStarted/AlgoTrading101.aspx">Algorithmic Trading 101</a></li>
+				<li><a href="https://quantiacs.com/For-Quants/GetStarted/TradSys101.aspx">Trading System 101</a></li>
+				<li><a href="https://quantiacs.com/For-Quants/GetStarted/QuantiacsToolbox.aspx">Quantiacs' Toolbox</a></li>
+				<li><a href="https://quantiacs.com/For-Quants/GetStarted/Markets.aspx">Markets</a></li>
+				<li><a href="https://quantiacs.com/For-Quants/GetStarted/Quant-Tutorials.aspx">Quant Tutorials</a></li>
+				<li><a href="https://quantiacs.com/For-Quants/GetStarted/FAQ.aspx">FAQs</a></li>
+			</ul>
+			</li>
+			<li><a href="https://quantiacs.com/Algorithmic-Trading-Competition">Competitions</a><span class="toggle-submenu collapsed">&gt;</span>
+			<ul style="display: none;">
+				<li><a href="https://quantiacs.com/For-Quants/Competitions/Q5-Competition.aspx">Open: Q5 Competition</a></li>
+				<li><a href="https://quantiacs.com/For-Quants/Competitions/Q4-Competition.aspx">Evaluating: Q4 Competition</a></li>
+				<li><a href="https://quantiacs.com/For-Quants/Competitions/Q3-Competition.aspx">Closed: Q3 Competition</a></li>
+				<li><a href="https://quantiacs.com/For-Quants/Competitions/q2competition.aspx">Closed: Q2 Competition</a></li>
+				<li><a href="https://quantiacs.com/For-Quants/Competitions/Futures-Contest-Ranking.aspx">Closed: Futures Competition</a></li>
+				<li><a href="https://quantiacs.com/For-Quants/Competitions/KickoffContestRanking.aspx">Closed: Kickoff Competition</a></li>
+			</ul>
+			</li>
+			<li><a href="https://quantiacs.com/For-Quants/Refer-a-Quant.aspx">Refer a Quant</a></li>
+		</ul>
+		</li>
+		<li><a href="https://quantiacs.com/Forums.aspx">Forums</a></li>
+	</ul></div>
+          <!--<div class="span3" id="Search"><div id="SearchBar"><div id="p_lt_searchbox_pnlSearch" class="searchBox" onkeypress="javascript:return WebForm_FireDefaultButton(event, &#39;p_lt_searchbox_btnSearch&#39;)">
+	
+    <label for="p_lt_searchbox_txtWord" id="p_lt_searchbox_lblSearch">Search for:</label>
+    <input name="p$lt$searchbox$txtWord" type="text" maxlength="1000" id="p_lt_searchbox_txtWord" />
+    <input type="submit" name="p$lt$searchbox$btnSearch" value="Search" id="p_lt_searchbox_btnSearch" />
+    
+
+</div>
+</div></div>-->
+        </div>
+      </div>      
+    </div>
+    
+  </header>
+   
+  </div>
+  <div id="body">
+     
+         <div id="ContentArea" class="container">
+          
+<div class="row-fluid">
+	<div class="pane span12"><h3>
+	QUANTIACS MATLAB TOOLBOX</h3>
+<p>
+	The Toolbox contains</p>
+<ul>
+	<li>
+		End-of-day data of the 500 Stocks in the S&amp;P 500 Index and of 44 Futures.</li>
+	<li>
+		sample trading system functions&nbsp;<span style="font-family: &#39;courier new&#39;, courier, monospace;">trendfollowing</span>&nbsp;and&nbsp;<span style="font-family: &#39;courier new&#39;, courier, monospace;">meanreversion</span></li>
+	<li>
+		A function&nbsp;<span style="font-family: &#39;courier new&#39;, courier, monospace;">runts</span>&nbsp;that runs and evaluates your tradingsystem</li>
+	<li>
+		A function&nbsp;<span style="font-family: &#39;courier new&#39;, courier, monospace;">submit</span>&nbsp;that uploads your tradingsystem to Quantiacs</li>
+</ul>
+<p>
+	&nbsp;</p>
+<h3>
+	PACKAGES</h3>
+<p>
+	We support the following Matlab ® Toolboxes:</p>
+<ul>
+	<li>
+		Curve Fitting</li>
+	<li>
+		Econometrics</li>
+	<li>
+		Financial</li>
+	<li>
+		Global Optimization</li>
+	<li>
+		Neural Network</li>
+	<li>
+		Optimization</li>
+	<li>
+		Signal Processing</li>
+	<li>
+		Statistics</li>
+</ul>
+<br>
+<h3>
+	WRITE YOUR TRADINGSYSTEM</h3>
+<p>
+	Write a Matlab ® function with the following prototype:</p>
+<pre>function [p, settings] = ts(DATE, OPEN, HIGH, LOW, CLOSE, VOL, exposure, equity, settings)</pre>
+<p>
+	Your function will be called each day of the backtesting period with the most recent data as arguments. You return your desired exposure&nbsp;<span style="font-family: &#39;courier new&#39;, courier, monospace;">p</span>&nbsp;for the next day.<br>
+	&nbsp;</p>
+<h3>
+	THE ARGUMENTS</h3>
+<p>
+	<span style="font-family: &#39;courier new&#39;, courier, monospace;">OPEN, HIGH, LOW, CLOSE, VOL, exposure&nbsp;</span>and&nbsp;<span style="font-family: &#39;courier new&#39;, courier, monospace;">equity&nbsp;</span>are each matrices of size [<span style="font-family: &#39;courier new&#39;, courier, monospace;">lookback x&nbsp;</span><span style="font-family: &#39;courier new&#39;, courier, monospace;">markets</span>], where&nbsp;<span style="font-family: &#39;courier new&#39;, courier, monospace;">lookback&nbsp;</span>represents the maximum lookback period in days and&nbsp;<span style="font-family: &#39;courier new&#39;, courier, monospace;">markets&nbsp;</span>the number of markets.<br>
+	<br>
+	If a market is not defined, its values are set to NaN. If data is missing within the series (for example due to a holiday) the missing data is replaced by the last known value with zero volume.</p>
+<br>
+<h3>
+	ARGUMENT DESCRIPTION</h3>
+<dl class="dl-horizontal">
+	<dt>
+		DATE</dt>
+	<dd>
+		a date integer in the format YYYYMMDD</dd>
+	<dt>
+		OPEN</dt>
+	<dd>
+		the first price of the session</dd>
+	<dt>
+		HIGH</dt>
+	<dd>
+		the highest price in session</dd>
+	<dt>
+		LOW</dt>
+	<dd>
+		the lowest price in session</dd>
+	<dt>
+		CLOSE</dt>
+	<dd>
+		the last price of the session</dd>
+	<dt>
+		VOL</dt>
+	<dd>
+		the number of stocks traded that day</dd>
+	<dt>
+		exposure</dt>
+	<dd>
+		the realized quantities of your tradingsystem</dd>
+	<dt>
+		equity</dt>
+	<dd>
+		the cumulated performance of each market</dd>
+	<dt>
+		settings</dt>
+	<dd>
+		a structure that stores all relevant settings for the simulation.</dd>
+</dl>
+For the contests your algorithm will always be called with the following settings:<br>
+<br>
+<pre>            settings.lookback      = 504;
+            settings.budget        = 1000000;
+            settings.slippage      = 0.05;
+</pre>
+<br>
+<h3>
+	THE RETURN VALUES</h3>
+<p>
+	p is a vector of size 1 x markets with your desired holding quantities for the next day.</p>
+<dl class="dl-horizontal">
+	<dt>
+		p<span style="position: relative; font-size: 9.75px; line-height: 0; vertical-align: baseline; bottom: -0.25em;">i</span>&nbsp;= 0</dt>
+	<dd>
+		you don't hold asset i in your portfolio</dd>
+	<dt>
+		p<span style="position: relative; font-size: 9.75px; line-height: 0; vertical-align: baseline; bottom: -0.25em;">i</span>&nbsp;&gt; 0</dt>
+	<dd>
+		you are invested long in asset i with weight p</dd>
+	<dt>
+		p<span style="position: relative; font-size: 9.75px; line-height: 0; vertical-align: baseline; bottom: -0.25em;">i</span>&nbsp;&lt; 0</dt>
+	<dd>
+		you are invested short in asset i with weight p</dd>
+</dl>
+<p>
+	You can modify the settings to fit your needs. But please note, that your algorithm will be called with the default settings for the contest.<br>
+	&nbsp;</p>
+<h3>
+	TEST YOUR TRADINGSYSTEM</h3>
+<p>
+	You can run your tradingsystem by typing</p>
+<p>
+	&nbsp;</p>
+<pre>runts('tsFilename')</pre>
+<p>
+	&nbsp;</p>
+<p>
+	at the Matlab prompt.&nbsp;<span style="font-family: &#39;courier new&#39;, courier, monospace;">runts</span>&nbsp;loads the market data and calls your tradingsystem for each day of the backtest with the most recent market data. It simulates the equity curve for your output values&nbsp;<span style="font-family: &#39;courier new&#39;, courier, monospace;">p</span>.&nbsp;<span style="font-family: &#39;courier new&#39;, courier, monospace;">runts</span>&nbsp;returns a struct with the exposures and the equity curves of the trading system. It computes the performance numbers of your system and plots its Factsheet.<br>
+	&nbsp;</p>
+<h3>
+	DEVELOP A TREND FOLLOWING SYSTEM</h3>
+<p>
+	In this tutorial we write a simple trend following algorithm for the 27 Futures of the CME. You find this tradingsystem trendfollowing.m in the toolbox.</p>
+<p>
+	We will create step by step the following Matlab® function:<br>
+	&nbsp;</p>
+<pre>function [p, settings] = trendfollowing(DATE, OPEN, HIGH, LOW, CLOSE, VOL, exposure, equity, settings)
+
+settings.markets&nbsp;&nbsp;&nbsp;&nbsp; = {'F_AD', 'F_BO', 'F_BP', 'F_C', 'F_CD', 'F_CL', 'F_DJ', 'F_EC', 'F_ES', 'F_FV', 'F_GC', 'F_HG', 'F_HO', 'F_LC', 'F_LN', 'F_NG', 'F_NQ', 'F_RB', 'F_S', 'F_SF', 'F_SI', 'F_SM', 'F_SP', 'F_TY', 'F_US', 'F_W', 'F_YM'};
+
+settings.sampleend&nbsp;&nbsp; = 20121231;
+settings.lookback    = 504;
+ 
+nMarkets = size(CLOSE,2);
+periodLong   = 200;
+periodRecent = 40;
+ 
+smaLong   = sum(CLOSE(end-periodLong+1:end,:)   ./periodLong);
+smaRecent = sum(CLOSE(end-periodRecent+1:end,:) ./periodRecent);
+ 
+long = smaRecent &gt;= smaLong;
+ 
+p = ones(1, nMarkets);
+p(~long) = -1;
+
+end</pre>
+&nbsp;<br>
+We implement a trend following classic: we compare two moving averages of the same data series. A moving average is the average price of an asset over the last n days. So we simply compare two differently averaged prices of the same stock.<br>
+<br>
+We call the market bullish and expect rising prices, if a recent average is higher than a long term average. If for example the average price of a stock in the last 40 trading days was higher than the average price of the same stock in the last 200 tradingdays, prices went up recently. Since we try to follow the trend, we want to be invested long in that situation.<br>
+<br>
+On the other hand, if the average price of the last 40 trading days dropped below the average price of the last 200 trading days, we assume the market is bearish. We expect further falling prices, and we want to be invested short.<br>
+<br>
+In short, we measure in a very simple way what happened with the market recently, and assume a continuation of that price move.<br>
+&nbsp;<br>
+The function template looks like this:<br>
+<br>
+<pre>function [p, settings] = trendfollowing(DATE, OPEN, HIGH, LOW, CLOSE, VOL, exposure, equity, settings)
+ 
+end</pre>
+&nbsp;<br>
+The arguments&nbsp;<span style="font-family: &#39;courier new&#39;, courier, monospace;">DATE, OPEN, HIGH, LOW, CLOSE</span>&nbsp;and&nbsp;<span style="font-family: &#39;courier new&#39;, courier, monospace;">VOL&nbsp;</span>are primary market variables, and thus written in upcase letters.<br>
+<br>
+<span style="font-family: &#39;courier new&#39;, courier, monospace;">DATE&nbsp;</span>is a column vector of size [504x1] that contains the ascending dates of the last 504 tradingdays in the format YYYYMMDD. The most recent data is at the end of the vector.<br>
+<br>
+<span style="font-family: &#39;courier new&#39;, courier, monospace;">OPEN, HIGH, LOW, CLOSE, VOL</span>&nbsp;are matrices of size [lookback x markets]. E.g.&nbsp;<span style="font-family: &#39;courier new&#39;, courier, monospace;">OPEN&nbsp;</span>has in our example the last 504 open values (rows) for the 27 markets (columns) in our portfolio.<br>
+<br>
+<span style="font-family: &#39;courier new&#39;, courier, monospace;">exposure&nbsp;</span>and&nbsp;<span style="font-family: &#39;courier new&#39;, courier, monospace;">equity&nbsp;</span>are also matrices of size [<span style="font-family: &#39;courier new&#39;, courier, monospace;">lookback&nbsp;</span>x&nbsp;<span style="font-family: &#39;courier new&#39;, courier, monospace;">markets</span>].&nbsp;<span style="font-family: &#39;courier new&#39;, courier, monospace;">exposure&nbsp;</span>stores the last 504 values of realized exposure of your tradingsystem. These are the percentage allocations for each asset you held in your simulated broker account the last two years.&nbsp;<span style="font-family: &#39;courier new&#39;, courier, monospace;">equity&nbsp;</span>is the cumulated sum of your holding quanities times the change in price minus trading costs. Or simply put: It is what you made with each asset in the last 2 years.<br>
+<br>
+The settings struct stores all relevant settings. We could change the lookback with a different value for&nbsp;<span style="font-family: &#39;courier new&#39;, courier, monospace;">settings.lookback</span>&nbsp;or the portfolio composition with another&nbsp;<span style="font-family: &#39;courier new&#39;, courier, monospace;">settings.markets</span>&nbsp;list. But for this tutorial we’ll go with the defaults: A lookback length of 504 trading days, which covers approximately the last two years of data and the 27 CME Futures.<br>
+<br>
+First we define three variables:<br>
+<br>
+<pre>nMarkets = size(CLOSE,2);
+periodLong   = 200;
+periodRecent = 40;</pre>
+&nbsp;<br>
+<span style="font-family: &#39;courier new&#39;, courier, monospace;">nMarkets&nbsp;</span>stores the number of markets, by measuring how many columns the Matrix&nbsp;<span style="font-family: &#39;courier new&#39;, courier, monospace;">CLOSE&nbsp;</span>has. In our example&nbsp;<span style="font-family: &#39;courier new&#39;, courier, monospace;">nMarkets&nbsp;</span>is 27.<br>
+<span style="font-family: &#39;courier new&#39;, courier, monospace;">periodLong&nbsp;</span>and&nbsp;<span style="font-family: &#39;courier new&#39;, courier, monospace;">periodRecent&nbsp;</span>are the two lookback periods, that we want to use to compute the average price.&nbsp;<br>
+Next we compute the two average prices for each market, and store the results in vectors of size [1x27]:<br>
+<br>
+<pre>smaLong   = sum(CLOSE(end-periodLong+1:end,:))   ./ periodLong;
+smaRecent = sum(CLOSE(end-periodRecent+1:end,:)) ./ periodRecent;</pre>
+&nbsp;<br>
+What happened here? Let’s start with<span style="font-family: &#39;courier new&#39;, courier, monospace;">&nbsp;CLOSE(end-periodLong+1:end,:)</span>. It uses the convenient way Matlab® provides to address only a part of a larger matrix.<br>
+&nbsp;<br>
+Generally you can address specific values of a matrix if you use their coordinates:&nbsp;<span style="font-family: &#39;courier new&#39;, courier, monospace;">CLOSE(504,27)</span>&nbsp;returns you the last&nbsp;<span style="font-family: &#39;courier new&#39;, courier, monospace;">CLOSE&nbsp;</span>of market 27.&nbsp;<span style="font-family: &#39;courier new&#39;, courier, monospace;">end&nbsp;</span>can be used to address the last element of a row or column.&nbsp;<span style="font-family: &#39;courier new&#39;, courier, monospace;">CLOSE(end,end)&nbsp;</span>gives you the last&nbsp;<span style="font-family: &#39;courier new&#39;, courier, monospace;">CLOSE&nbsp;</span>of the last market. In this case&nbsp;<span style="font-family: &#39;courier new&#39;, courier, monospace;">CLOSE(end, end)</span>&nbsp;is equivalent to&nbsp;<span style="font-family: &#39;courier new&#39;, courier, monospace;">CLOSE(504,27)</span>.<br>
+<br>
+Not only can you address single numbers from a matrix, but you can also address arbitrary sub-matrices:&nbsp;<span style="font-family: &#39;courier new&#39;, courier, monospace;">CLOSE(1:10,2)</span>&nbsp;returns you the first 10 values of&nbsp;<span style="font-family: &#39;courier new&#39;, courier, monospace;">CLOSE&nbsp;</span>of the second market.<br>
+The<span style="font-family: &#39;courier new&#39;, courier, monospace;">&nbsp;:&nbsp;</span>returns all rows/columns. It is equivalent to&nbsp;<span style="font-family: &#39;courier new&#39;, courier, monospace;">1:end</span>. In our case it returns all 27 columns.<br>
+&nbsp;<br>
+So what we were doing with&nbsp;<span style="font-family: &#39;courier new&#39;, courier, monospace;">CLOSE(end-periodLong+1:end,:)</span>&nbsp;was simply returning a sub-matrix of size [200x27] from&nbsp;<span style="font-family: &#39;courier new&#39;, courier, monospace;">CLOSE&nbsp;</span>of the last 200 days, and all markets.<br>
+&nbsp;<br>
+We then use&nbsp;<span style="font-family: &#39;courier new&#39;, courier, monospace;">sum&nbsp;</span>to sum up the sub-matrix column wise. Thus we get a vector of size [1x27], containing the sum of the last 200 values of&nbsp;<span style="font-family: &#39;courier new&#39;, courier, monospace;">CLOSE&nbsp;</span>for each market.<br>
+&nbsp;<br>
+Since we don’t want the sum but an average price, we have to divide each element of the vector by 200. The result of this computation is assigned to the variable&nbsp;<span style="font-family: &#39;courier new&#39;, courier, monospace;">smaLong</span>, a vector of size [1x27].<br>
+&nbsp;<br>
+We compute&nbsp;<span style="font-family: &#39;courier new&#39;, courier, monospace;">smaRecent&nbsp;</span>the same way.<br>
+&nbsp;<br>
+Now we can compare the two vectors and assign the result to a vector&nbsp;<span style="font-family: &#39;courier new&#39;, courier, monospace;">long</span>:<br>
+&nbsp;
+<pre>long = smaRecent &gt;= smaLong;</pre>
+&nbsp;<br>
+<span style="font-family: &#39;courier new&#39;, courier, monospace;">smaRecent&nbsp;</span>and&nbsp;<span style="font-family: &#39;courier new&#39;, courier, monospace;">smaLong&nbsp;</span>have the same size, [1x27]. That’s why we can perform an element-wise comparison, and get a boolean vector&nbsp;<span style="font-family: &#39;courier new&#39;, courier, monospace;">long</span>. It is 1, when&nbsp;<span style="font-family: &#39;courier new&#39;, courier, monospace;">smaRecent&nbsp;</span>is greater or equal to&nbsp;<span style="font-family: &#39;courier new&#39;, courier, monospace;">smaLong&nbsp;</span>and 0 otherwise.<br>
+&nbsp;<br>
+Our trading system is almost complete. Now we just have to allocate the proper percentages. We start by defining our output value&nbsp;<span style="font-family: &#39;courier new&#39;, courier, monospace;">p</span>&nbsp;as a row vector of 27 ones. Then we replace the 1 with -1 wherever our field&nbsp;<span style="font-family: &#39;courier new&#39;, courier, monospace;">long&nbsp;</span>is false, since we want to be short in the market if there is no long signal:<br>
+&nbsp;
+<pre>p = ones(1, nMarkets);
+p(~long) = -1;</pre>
+The trading system allocates the same weight, either 1 or -1 to every market. Every market is traded with 1/nMarkets of the available capital.&nbsp;<br>
+<p>
+	<br>
+	That’s it, the first tradingsystem is ready. If you type&nbsp;<span style="font-family: &#39;courier new&#39;, courier, monospace;">runts('trendfollowing')</span>&nbsp;at the Matlab® prompt, and hit return you see the poor result.<br>
+	&nbsp;<br>
+	Surely you can do better than that.<br>
+	&nbsp;</p>
+<h3>
+	OPTIMIZATION</h3>
+<p>
+	In the developing tutorial, we chose our parameters&nbsp;<span style="font-family: &#39;courier new&#39;, courier, monospace;">periodLong&nbsp;</span>and&nbsp;<span style="font-family: &#39;courier new&#39;, courier, monospace;">periodRecent&nbsp;</span>at 200 and 40 in trendfollowing simply because it appeared reasonable. That choice was somewhat arbitrary. Maybe there is a better set of parameters for our system?<br>
+	<br>
+	To compute several different parameterizations of the same system we can use the&nbsp;<span style="font-family: &#39;courier new&#39;, courier, monospace;">optimize&nbsp;</span>function. To use this feature place a comment next to the parameter you wish to scan. Within the comment place the parameter domain and step-size between two pound signs (similar to the Matlab vector notation). For our example system, we will scan over&nbsp;<span style="font-family: &#39;courier new&#39;, courier, monospace;">periodLong&nbsp;</span>and&nbsp;<span style="font-family: &#39;courier new&#39;, courier, monospace;">periodRecent</span>:<br>
+	&nbsp;</p>
+<pre>periodLong    = 200; %#[150:10:300]#
+periodRecent  =  40; %#[20:5:60]#</pre>
+<p>
+	<br>
+	With these settings we choose to vary&nbsp;<span style="font-family: &#39;courier new&#39;, courier, monospace;">periodLong&nbsp;</span>from 150 to 300 in steps of 10, and&nbsp;<span style="font-family: &#39;courier new&#39;, courier, monospace;">periodRecent&nbsp;</span>from 20 to 60 in steps of 5. To evaluate the entire parameter space, input the following into the Matlab prompt.<br>
+	&nbsp;</p>
+<pre>res = optimize('trendfollowing') </pre>
+<p>
+	<br>
+	Press return to compute all instances of that parameter space. The result of the optimization is stored in the struct&nbsp;<span style="font-family: &#39;courier new&#39;, courier, monospace;">res</span>. It contains the statistics of each instance--Sharpe Ratio, average yearly performance, average volatility, etc.<br>
+	&nbsp;<br>
+	To find the parameters of the system with the best Sharpe Ratio, enter into the prompt:<br>
+	&nbsp;</p>
+<pre>[m mIx] = max(res.sharpe)</pre>
+<p>
+	<br>
+	Next we just only need look up the parameter values for the optimal instance. To find the parameter values, we find the parameter value at the optimal index,&nbsp;<span style="font-family: &#39;courier new&#39;, courier, monospace;">mIx</span>. To do this type the following at the Matlab prompt:<br>
+	&nbsp;</p>
+<pre>res.periodLong(mIx)
+res.periodRecent(mIx)</pre>
+<br>
+<h3>
+	SUBMITTING</h3>
+Type<span style="font-family: &#39;courier new&#39;, courier, monospace;">&nbsp;submit('TSFile', 'nameTS')</span>&nbsp;at the Matlab prompt.<br>
+<br>
+<span style="font-family: &#39;courier new&#39;, courier, monospace;">TSFile</span>&nbsp;is the name of the .m file on your computer,&nbsp;<span style="font-family: &#39;courier new&#39;, courier, monospace;">nameTS</span>&nbsp;is the name that you want to give your Tradingsystem on Quantiacs. If you don’t enter a name, the filename will be used as default nameTS.<br>
+&nbsp;<br>
+You will be prompted to log in to complete the upload.<br>
+<br>
+Alternatively you can upload a tradingsystem via the Upload button on the Website.<br>
+<br>
+<br>
+<h3>
+	TRAIN YOUR MATLAB SKILLS</h3>
+<p>
+	If you want to improve your Matlab skills we recommend&nbsp;<a href="http://www.mathworks.com/matlabcentral/cody/" target="_blank">Mathwork's Cody</a>. It's a good problem solving challenge that features a lot of small programming problems with gradually increasing difficulty.</p>
+<p>
+	If you are already familiar with Matlab and want to improve your skills to expert level we recommend you solve a problem on&nbsp;<a href="http://www.projecteuler.net/" target="_blank">Project Euler</a>... or write an algorithm on&nbsp;<a href="http://www.quantiacs.com/" target="_blank">Quantiacs</a>!<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	&nbsp;</p>
+
+
+
+
+</div>
+</div>
+<div class="row-fluid">
+	<div class="pane span7"></div>
+	<div class="pane span5"></div>
+</div>
+<div class="row-fluid">
+	<div class="pane span8"></div>
+	<div class="pane span4"></div>
+</div>
+<div class="row-fluid">
+	<div class="pane span6"></div>
+	<div class="pane span6"></div>
+</div>
+<div class="row-fluid">
+	<div class="pane span12"></div>
+</div>
+<div class="row-fluid">
+	<div class="pane span7"></div>
+	<div class="pane span5"></div>
+</div>
+<div class="row-fluid">
+	<div class="pane span4"></div>
+	<div class="pane span8"></div>
+</div>
+<div class="row-fluid">
+	<div class="pane span3"></div>
+	<div class="pane span6"></div>
+	<div class="pane span3"></div>
+</div>
+<div class="row-fluid">
+	<div class="pane span12"></div>
+</div>
+<div class="row-fluid">
+	<div class="pane span4"></div>
+	<div class="pane span4"></div>
+	<div class="pane span4"></div>
+</div>
+
+         </div>
+      
+   <div class="clear"></div>
+  </div>
+</div>
+
+  <footer>
+    <div class="footerSocial">
+      <div class="container">
+          <h5>Connect with us</h5>
+          <ul class="widget-icons">
+              <li class="highlight facebook"><a target="_blank" href="https://facebook.com/Quantiacs"></a></li>
+              <li class="highlight twitter"><a target="_blank" href="https://twitter.com/Quantiacs"></a></li>
+              <li class="highlight linkedin"><a target="_blank" href="https://www.linkedin.com/company/quantiacs"></a></li>
+              <li class="highlight youtube"><a target="_blank" href="https://www.youtube.com/channel/UCS8bIV3uEJLIaA91s5uQzQw"></a></li>
+              <li class="highlight newmail"><a href="mailto:office@quantiacs.com"></a></li>
+          </ul>
+      </div>
+  </div>
+  <div class="footerMenuCopy">
+      <div class="container">
+        <ul class="footerMenuLine">
+              <li><a href="https://quantiacs.com/Contact.aspx">Contact</a></li>
+              <li><a href="https://quantiacs.com/Jobs.aspx">Jobs</a></li>
+              <li><a href="https://quantiacs.com/UserAgreement.aspx">User agreement</a></li>
+              <li><a href="https://quantiacs.com/Contact.aspx">Legal Notice</a></li>
+          </ul>
+ 
+          <p class="copyrights">
+              Copyrights @ 2015 Quantiacs LLC            
+          </p>
+      </div>
+  </div>
+    
+  </footer>
+    <div id="BgLayer1" class="full-width"></div>
+	<script type="text/javascript">
+		(function ($) {
+			$(document).ready(function () {
+				//Carousel
+				//$('.carousel').carousel({
+					//interval: 5000
+				//});
+				//$('.carousel').carousel('next');
+
+				//Tooltips
+				$('a[rel=tooltip]').tooltip();
+
+				//Popovers
+				$('a[rel=popover]').popover({
+					trigger: 'hover'
+				});
+			});
+		})(jQuery);
+	</script>
+
+    <script type="text/javascript">
+      (function( $ ) {
+        $("#MenuH .Horizontal > ul").BindMENU({ MenuStyle: "DefaultMenu", Orientation: "Horizontal" });
+        $("#MenuV .Vertical > ul").BindMENU({ MenuStyle: "DefaultMenu", Orientation: "Vertical" });
+      })(jQuery);
+    </script>
+<script type="text/javascript">jQuery.noConflict();</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52524544-1', 'www.quantiacs.com');
+  ga('send', 'pageview');
+
+</script>
+
+
+    
+    
+
+<script type="text/javascript">
+//<![CDATA[
+(function() {var fn = function() {$get("manScript_HiddenField").value = '';Sys.Application.remove_init(fn);};Sys.Application.add_init(fn);})();//]]>
+</script>
+
+<script type="text/javascript">
+	//<![CDATA[
+if (typeof(Sys.Browser.WebKit) == 'undefined') {
+    Sys.Browser.WebKit = {};
+}
+if (navigator.userAgent.indexOf('WebKit/') > -1) {
+    Sys.Browser.agent = Sys.Browser.WebKit;
+    Sys.Browser.version = parseFloat(navigator.userAgent.match(/WebKit\/(\d+(\.\d+)?)/)[1]);
+    Sys.Browser.name = 'WebKit';
+}
+//]]>
+</script>
+<script type="text/javascript">
+	//<![CDATA[
+WebServiceCall('https://quantiacs.com/CMSPages/WebAnalyticsService.asmx','LogHits', '{"pageGUID":"9e156f89-303c-4e76-a8a7-8a6c87092cfc", "referrer":""}')
+//]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+
+var callBackFrameUrl='/WebResource.axd?d=vWXryvOIvkl7SIfO9Qab1n4PabBqrBgrsLo8tJWBBeLrgNYXDzfXk484HUGUoanRvU9RO0jXLWLeQZIjJyI9wb6MpxKex95MHDR1xjppO-M1&t=635418460260000000';
+WebForm_InitCallback();//]]>
+</script>
+</form>
+
+
+</body></html>

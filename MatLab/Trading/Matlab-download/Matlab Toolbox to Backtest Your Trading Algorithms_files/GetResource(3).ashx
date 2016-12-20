@@ -1,0 +1,1 @@
+.IE7 #MenuH select,.IE7 #MenuH select+span{display:none}.IE7 .cmsSP2007 #Login{width:150px!important}
