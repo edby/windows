@@ -1,4 +1,4 @@
-function op1= highest( ip1,ip2) % return the number of the highest bar from bar ip1 to ip2; 
+function op1= highest(ip1,ip2) % return the number of the highest bar from bar ip1 to ip2; 
 %UNTITLED2 Summary of this function goes here
 %   Detailed explanation goes here
 global high;

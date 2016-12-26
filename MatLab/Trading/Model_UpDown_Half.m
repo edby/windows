@@ -48,7 +48,7 @@ if low(lowest(L-2,L))>=low(L) %&& L>4*cycleD
             bars_len=Model_DownUpDown_Call;
             if sum(bars_len)>0
                 for tem=1:5
-                    if bars_len(tem)>0
+                    if bars_len(tem)>0 && L-3*bars_len(tem)>0
                         firstH=L-2*bars_len(tem);
                         if high(highest(firstH-3,firstH+3))>=high(highest(firstH-bars_len(tem),firstH+ceil(bars_len(tem)/2)))...
                                 &&low(lowest(firstH,L-bars_len(tem)))<=low(lowest(L-bars_len(tem),L))...
