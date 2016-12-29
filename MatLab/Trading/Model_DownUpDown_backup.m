@@ -20,8 +20,7 @@ if low(L)<=low(lowest(L-5,L))
                     flag=1;
                     break;
                 end
-              
-                if low(jj)<=low(lowest(jj-ceil(j/2),L-j)) && high(highest(jj-j-1,jj-j+1))>=high(highest(jj-j-4,L))...%high(highest(jj-ceil(3*j/2),L))
+                if low(jj)<=low(lowest(jj-ceil(j/2),L-j)) && high(highest(jj-j-1,jj-j+1))>=high(highest(jj-ceil(3*j/2),L))...
                         && low(L)<=low(lowest(jj-j,L)) 
                     H1=highest(jj-j-1,jj-j+1);
                     L1=lowest(jj-1,jj+1);
@@ -29,8 +28,8 @@ if low(L)<=low(lowest(L-5,L))
                     Bar0=4*(L-H1); % Bar0 is back forward's start point;
                     if L<Bar0
                         Bar0=L-1;
-                    end 
-                    if (high(H1)-low(L1))*1.3/(L1-H1)>=(high(H2)-low(L))/(L-H2) && abs(L-2*j-jj)<=1 %&& AboveHalf(Bar0) 
+                    end
+                    if (high(H1)-low(L1))/(L1-H1)>=(high(H2)-low(L))/(L-H2) && AboveHalf(Bar0)
                         kline=kline+1;
                         X(1,kline)=jj-j; Y(1,kline)=high(jj-j);
                         X(2,kline)=jj;   Y(2,kline)=low(jj);

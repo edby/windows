@@ -61,6 +61,7 @@ n=input('Plese put in times of selected models for one stock:');
 backday=input('Plese put back days:');
 
 load IDNames.mat;
+% load IDNames_copy.mat;
 for i=1:length(IDNames)
     name_f=strcat('E:\360Synchronization\360Synchronization\MatLab\DataFromZX\AllStocks\',IDNames{i},'.txt');
     fid=fopen(name_f);
@@ -133,7 +134,7 @@ if 0 %strcmp(args,'all') || any(args==1)
 end
 %% Model_UpDown : Up and Down bars are the same; Model Number:2
 if strcmp(args,'all') || any(args==2)
-    [x1,x3,y3,ord,ratio]=Model_UpDown_Half_Week;
+    [x1,x3,y3,ord,ratio]=Model_UpDown_Half2;
     if x1>0
         X1=X1+x1;
         [~,colA]=size(x3);
@@ -157,7 +158,7 @@ if strcmp(args,'all') || any(args==2)
     end
 end
 %% Model_DownUpDown : Two Downs'bars are the same and are different from Up's bars; Model Number:3
-if 0%strcmp(args,'all') || any(args==3)
+if strcmp(args,'all') || any(args==3)
     [x1,x4,y4,ord,udlen]=Model_DownUpDown;
     if x1>0
         X1=X1+x1;

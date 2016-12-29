@@ -1,4 +1,4 @@
-function [op1,op3,op31,ord,ratio]=Model_UpDown_Half_Week
+function [op1,op3,op31,ord,ratio]=Model_UpDown_Half2
 global high low close vol;
 op1=0;
 op3=0;
