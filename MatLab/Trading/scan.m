@@ -170,7 +170,7 @@ if strcmp(args,'all') || any(args==3)
     end
 end
 %% Model_12: 12 bars' cycle; Model number:4
-if 0%strcmp(args,'all') || any(args==4)
+if strcmp(args,'all') || any(args==4)
     [x1,x2]=Model_12;
     if x1>0
         X1=X1+x1;
