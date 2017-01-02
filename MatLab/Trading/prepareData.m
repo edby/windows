@@ -4,11 +4,10 @@ global date high low close open vol;
 
 % load IDNames_copy.mat;
 load IDNames.mat;
-
-X=zeros(50000000,6);
-Y=zeros(50000000,1);
-
 for i=1:length(IDNames)
+    if IDNames{i}(3)=='6'
+        continue;
+    end
 %     name_f=strcat('E:\360Synchronization\360Synchronization\MatLab\DataFromZX\AllStocks\',IDNames{i},'.txt');
     name_f=strcat('E:\360Synchronization\360Synchronization\MatLab\DataFromZX\BackTest\',IDNames{i},'.txt');
     fid=fopen(name_f);
@@ -24,19 +23,19 @@ for i=1:length(IDNames)
     low=Data{4}(1:L);
     close=Data{5}(1:L);
     vol=Data{6}(1:L);
-    x=zeros(10000,6);
-    y=zeros(10000,1);
+    x=zeros(5000,6);
+    y=zeros(5000,1);
     for j=15:L-5
         highPoint=highest(j-12,j);
         lowPoint=lowest(j-12,j);
         x(j-14,1)=(close(j)-close(j-1))/close(j-1);
         x(j-14,2)=double(vol(j)-vol(j-1))/double(vol(j-1));
-        everPrice=mean(close(highPoint:j));
+        everPrice=mean(close(j-11:j));
         x(j-14,3)=(close(j)-everPrice)/everPrice;
-        everVol=double(mean(vol(highPoint:j)));
+        everVol=double(mean(vol(j-11:j)));
         x(j-14,4)=double(vol(j)-everVol)/everVol;
-        x(j-14,5)=j-highPoint;
-        x(j-14,6)=j-lowPoint;
+        x(j-14,5)=(j-highPoint)/12;
+        x(j-14,6)=(j-lowPoint)/12;
         if low(j)<low(lowest(j+1,j+4))&& datenum(date(j+4))-datenum(date(j))<=10
             upratio=(high(highest(j+1,j+4))-low(j))/low(j);
             if upratio>0.15 && upratio<0.3
@@ -47,11 +46,27 @@ for i=1:length(IDNames)
         end                                      
     end
     
-    len_x=sum(x(:,1)~=0);
-    len_X=sum(X(:,1)~=0);
-    X(len_X+1:len_X+len_x,:)=x(1:len_x,:);
-    Y(len_X+1:len_X+len_x)=y(1:len_x);
+x0=x(y(1:L-19)==0,:);
+x1=x(y==1,:);
+x2=x(y==2,:);
+tem=max([size(x1,1),size(x2,1)]);
+temRand=randperm(size(x0,1));
+x0=x0(temRand(1:tem),:);
+
+x0=[x0,zeros(size(x0,1),1)];
+x1=[x1,ones(size(x1,1),1)];
+x2=[x2,2*ones(size(x2,1),1)];
+dlmwrite('dataML.txt', [x0;x1;x2], 'newline','pc','-append');
+
 end
-save dataML X Y
+% save dataML X Y
+% dlmwrite('dataML.txt',[X,Y],'newline','pc');
 end
+
+% [num, text, raw] = xlsread(fileName);
+% [rowN, columnN]=size(raw);
+% sheet=1;
+% xlsRange=['A',num2str(rowN+1)];
+% xlswrite(fileName,data,sheet,xlsRange);
+
 
