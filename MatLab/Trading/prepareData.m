@@ -6,10 +6,11 @@ global date high low close open vol;
 load IDNames.mat;
 for i=1:length(IDNames)
     if IDNames{i}(3)=='6'
+    %if IDNames{i}(3)~='6'
         continue;
     end
-%     name_f=strcat('E:\360Synchronization\360Synchronization\MatLab\DataFromZX\AllStocks\',IDNames{i},'.txt');
-    name_f=strcat('E:\360Synchronization\360Synchronization\MatLab\DataFromZX\BackTest\',IDNames{i},'.txt');
+    name_f=strcat('E:\360Synchronization\360Synchronization\MatLab\DataFromZX\AllStocks\',IDNames{i},'.txt');
+%     name_f=strcat('E:\360Synchronization\360Synchronization\MatLab\DataFromZX\BackTest\',IDNames{i},'.txt');
     fid=fopen(name_f);
     Data=textscan(fid,'%s %f %f %f %f %d %d','headerlines',2);  
     fclose(fid);
@@ -53,11 +54,25 @@ tem=max([size(x1,1),size(x2,1)]);
 temRand=randperm(size(x0,1));
 x0=x0(temRand(1:tem),:);
 
+% x0=[x0,zeros(size(x0,1),1)];
+% x1=[x1,ones(size(x1,1),1)];
+% x2=[x2,2*ones(size(x2,1),1)];
+% dlmwrite('dataML.txt', [x0;x1;x2], 'newline','pc','-append');
+y(y==2)=1;
+for i=2:L-19
+    if i<=5
+        if sum(y(1:i-1))>0&&y(i)==1
+            y(i)=0;
+        end
+    else
+        if y(i)==1&&sum(y(i-5:i-1))>0
+            y(i)=0;
+        end
+    end
+end
 x0=[x0,zeros(size(x0,1),1)];
-x1=[x1,ones(size(x1,1),1)];
-x2=[x2,2*ones(size(x2,1),1)];
-dlmwrite('dataML.txt', [x0;x1;x2], 'newline','pc','-append');
-
+x1=[[x1;x2],ones(size([x1;x2],1),1)];
+dlmwrite('dataML.txt', [x0;x1], 'newline','pc','-append');
 end
 % save dataML X Y
 % dlmwrite('dataML.txt',[X,Y],'newline','pc');
