@@ -70,7 +70,7 @@ for i=2:L-19
     end
 end
 
-tem=5*sum(y);
+tem=8*sum(y);
 temRand=randperm(size(x0,1));
 x0=x0(temRand(1:tem),:);
 
