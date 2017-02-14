@@ -1,0 +1,11 @@
+dev tun
+resolv-retry infinite
+nobind
+ca "cert/ca.crt"
+persist-key
+persist-tun
+auth-user-pass
+ns-cert-type server
+comp-lzo
+verb 3
+auth-nocache
